@@ -107,7 +107,7 @@
 }
 
 .names-container  > .names:nth-child(2) {
-    margin-left: -7rem;
+    margin-left: -8.5rem;
     margin-top: -5rem;
 }
 
@@ -151,16 +151,19 @@ font-family: "Shekasteh", sans-serif;
 }
    
 .poem {
-    font-size: 1.5rem; /* اندازه متن شعر */
-    color: #525555; /* رنگ ملایم */
+    font-size: 1.5rem;
+    color: #525555;
     margin: 10px 0;
-    width: 23rem;
-    line-height: 1.5; /* فاصله بین خطوط */
-    font-family: "Shekasteh", sans-serif; 
-    overflow: hidden;
+    /* line-height: 2; */
     text-align: center;
-
+    overflow: visible; /* حذف مشکل اسکرول بار */
+    white-space: normal; /* متن به صورت طبیعی شکسته می‌شود */
+    word-wrap: break-word; /* متن در صورت طولانی بودن به خط بعدی می‌رود */
+    font-weight: normal;
+    font-style: normal;
+    font-family: "Shekasteh", sans-serif; 
 }
+
 
 .border-decoration {
     position: absolute;
