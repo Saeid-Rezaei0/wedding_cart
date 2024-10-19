@@ -1,64 +1,63 @@
-body, html {
-    margin: 0;
+* {
     padding: 0;
-    font-family: 'IranSans', sans-serif;
-    height: 100vh;
-    direction: rtl;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    font-family: "IranSans";
     overflow-x: hidden;
-    position: relative;
 }
-
-#bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
+.bg-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    z-index: 0; /* تغییر به 0 یا بالاتر */
+    height: 100vh;
+    position: relative; /* برای تنظیم موقعیت کارت دعوت */
+    animation: zoomOut 5s infinite alternate; /* انیمیشن زوم */
 }
 
-
+.container {
+    position: relative; /* موقعیت برای کارت دعوت */
+    height: 100vh; /* اطمینان از اینکه کانتینر تمام ارتفاع را پر کند */
+}
 .invitation {
     width: 90%;
     max-width: 500px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #c69;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* padding: 30px; */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    /* border: 2px solid rgba(255, 255, 255, 0.1); */
+    /* border-radius: 15px; */
+    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); */
     text-align: center;
-    position: relative;
-    overflow: scroll;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
+    animation: fadeIn 1s forwards;
 }
-
 .header-text {
-    color: #a0849b;
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 1rem; /* اندازه بزرگتر */
+    font-weight: bold; /* پررنگ */
+    color: #2c3e50; /* رنگ دلخواه */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* سایه متن */
+    margin: 10px 0;
 }
 
 .names {
-    font-size: 2rem;
-    color: #7c476d;
-    margin-bottom: 10px;
+    font-size: 2rem; /* اندازه بزرگتر برای نام‌ها */
+    font-weight: bold; /* پررنگ */
+    color: #47218e; /* رنگ زیبا */
+    margin: 10px 0;
 }
 
-.date {
-    font-size: 1.2rem;
-    color: #b986a8;
-    margin-bottom: 20px;
+.date, .details {
+    font-size: 1rem; /* اندازه متن برای تاریخ و جزئیات */
+    color: #34495e; /* رنگ ملایم */
+    margin: 5px 0;
 }
 
-.details {
-    font-size: 1rem;
-    color: #a0849b;
-    line-height: 1.6;
+.poem {
+    font-size: 1rem; /* اندازه متن شعر */
+    color: #7f8c8d; /* رنگ ملایم */
+    margin: 10px 0;
+    line-height: 1.5; /* فاصله بین خطوط */
 }
 
 .border-decoration {
@@ -67,32 +66,33 @@ body, html {
     right: 0;
     bottom: 0;
     left: 0;
-    border: 1px solid #e2c3d3;
     margin: 15px;
+    pointer-events: none; /* برای جلوگیری از تداخل در کلیک‌ها */
 }
 
-.poem {
-    font-size: 1.2rem;
-    color: #7c476d;
-    margin: 20px 0;
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .invitation {
-        padding: 15px;
+/* انیمیشن زوم */
+/* انیمیشن زوم */
+@keyframes zoomOut {
+    0% {
+        /* transform: scale(1) translateY(-2%)  translateY(0%);  */
+        transform: scale(1.1) translateY(-2%) translateX(-8%);
+        transform: scale(0.5); 
     }
-
-    .names {
-        font-size: 1.8rem;
+    50% {
+        transform: scale(1.1) ; /* حرکت به سمت پایین */
     }
-
-    .date {
-        font-size: 1rem;
-    }
-
-    .poem {
-        font-size: 1rem;
+    100% {
+        transform: scale(0);  
+         transform: scale(1.1) translateX(-2%) translateY(-2%); /* زوم به ۱.۱ و حرکت به سمت پایین */
     }
 }
 
+/* انیمیشن فید این */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* شروع از شفافیت صفر */
+    }
+    to {
+        opacity: 1; /* پایان با شفافیت کامل */
+    }
+}
