@@ -153,14 +153,15 @@ font-family: "Shekasteh", sans-serif;
 .poem {
     font-size: 1.5rem;
     color: #525555;
-    margin: 10px 0;
-    /* line-height: 2; */
+    /* margin: 10px 0; */
+    line-height: 2;
     text-align: center;
     overflow: visible; /* حذف مشکل اسکرول بار */
     white-space: normal; /* متن به صورت طبیعی شکسته می‌شود */
     word-wrap: break-word; /* متن در صورت طولانی بودن به خط بعدی می‌رود */
     font-weight: normal;
     font-style: normal;
+    /* line-height: 1.5; */
     font-family: "Shekasteh", sans-serif; 
 }
 
