@@ -18,11 +18,6 @@
 .invitation {
     width: 90%;
     max-width: 500px;
-    /* padding: 30px; */
-    /* background-color: rgba(255, 255, 255, 0.1); */
-    /* border: 2px solid rgba(255, 255, 255, 0.1); */
-    /* border-radius: 15px; */
-    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); */
     text-align: center;
     height: auto;
     position: absolute;
@@ -32,25 +27,30 @@
     z-index: 1;
     animation: fadeIn 1s forwards;
 }
-.header-text {
-    font-size: 1rem; /* اندازه بزرگتر */
-    font-weight: bold; /* پررنگ */
-    color: #2c3e50; /* رنگ دلخواه */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* سایه متن */
-    margin: 10px 0;
-}
 
+.invitation > .span_top_down{
+    padding-bottom: 6rem;
+}
+.invitation > .span_top,
+.invitation > .span_top_down {
+    /* width: 25rem; */
+    margin: auto;
+}
 .names {
-    font-size: 2rem; /* اندازه بزرگتر برای نام‌ها */
+    /* padding: 2=rem 0; */
+    font-size: 1.8rem; /* اندازه بزرگتر برای نام‌ها */
     font-weight: bold; /* پررنگ */
-    color: #47218e; /* رنگ زیبا */
-    margin: 10px 0;
+    color: #6a617a; /* رنگ زیبا */
+    margin: 0;
 }
-
+.date{
+    padding-top: 3rem;
+}
 .date, .details {
     font-size: 1rem; /* اندازه متن برای تاریخ و جزئیات */
     color: #34495e; /* رنگ ملایم */
     margin: 5px 0;
+
 }
 
 .poem {
@@ -71,19 +71,18 @@
 }
 
 /* انیمیشن زوم */
-/* انیمیشن زوم */
 @keyframes zoomOut {
     0% {
-        /* transform: scale(1) translateY(-2%)  translateY(0%);  */
-        transform: scale(1.1) translateY(-2%) translateX(-8%);
-        transform: scale(0.5); 
+        transform: scale(0) translateY(-2%) translateX(5%);
+    }
+    20% {
+        transform: scale(1);
     }
     50% {
-        transform: scale(1.1) ; /* حرکت به سمت پایین */
+        transform: scale(1.1);
     }
     100% {
-        transform: scale(0);  
-         transform: scale(1.1) translateX(-2%) translateY(-2%); /* زوم به ۱.۱ و حرکت به سمت پایین */
+        transform: scale(1.1) translateX(5%) translateY(-2%);
     }
 }
 
