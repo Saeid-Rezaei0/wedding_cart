@@ -1,28 +1,97 @@
-* {
-    padding: 0;
+body, html {
     margin: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-
-.bodybg {
-    background-image: url("image/3d-wedding-invitation-greeting-cards-floral-backgrounds-templates-with-copyspace_1278346-18924.jpg");
-    background-position: center;
-    background-size: cover;
-    width: 100%;
+    padding: 0;
+    font-family: 'IranSans', sans-serif;
     height: 100vh;
-    animation: smoothZoom 5s ease-in-out infinite;
-    transition: all 0.5s ease-in-out;
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
 }
 
-@keyframes smoothZoom {
-    0% {
-        transform: scale(1); /* مقیاس اولیه */
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* یا تغییر به contain */
+    z-index: -1;
+    object-position: center top; 
+}
+
+
+.invitation {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #c69;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-text {
+    color: #a0849b;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.names {
+    font-size: 2rem;
+    color: #7c476d;
+    margin-bottom: 10px;
+}
+
+.date {
+    font-size: 1.2rem;
+    color: #b986a8;
+    margin-bottom: 20px;
+}
+
+.details {
+    font-size: 1rem;
+    color: #a0849b;
+    line-height: 1.6;
+}
+
+.border-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #e2c3d3;
+    margin: 15px;
+}
+
+.poem {
+    font-size: 1.2rem;
+    color: #7c476d;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .invitation {
+        padding: 15px;
     }
-    50% {
-        transform: scale(1.05) translateY(-10px); /* زوم خیلی کم و حرکت مختصر */
+
+    .names {
+        font-size: 1.8rem;
     }
-    100% {
-        transform: scale(1); /* بازگشت به حالت اولیه */
+
+    .date {
+        font-size: 1rem;
+    }
+
+    .poem {
+        font-size: 1rem;
     }
 }
+
