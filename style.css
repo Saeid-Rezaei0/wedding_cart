@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+    overflow-x: hidden;
+}
+
+.bodybg {
+    background-image: url("image/3d-wedding-invitation-greeting-cards-floral-backgrounds-templates-with-copyspace_1278346-18924.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    animation: zoomInOut 4s ease-in-out infinite;
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1) translate(0, 0); /* حالت عادی */
+    }
+    50% {
+        transform: scale(1.1) translate(-20px, 50px); /* زوم این و حرکت به پایین سمت چپ */
+    }
+    100% {
+        transform: scale(1) translate(-10px, 50px); /* زوم اوت و حرکت به پایین سمت راست */
+    }
+}
