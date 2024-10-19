@@ -1,14 +1,52 @@
+@font-face {
+    font-family: 'Shekasteh';
+    src: url('font/Shekasteh\ V2.001.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'IranNastaliq';
+    src: url('font/IranNastaliq.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BTraffiBold_0';
+    src: url('font/B\ Traffic\ Bold_0.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BTraffi';
+    src: url('font/B\ Traffic_0.ttf') format('truetype');
+}
+
+
 * {
     padding: 0;
     margin: 0;
-    font-family: "IranSans";
+    /* استفاده از فونت سفارشی */
     overflow-x: hidden;
 }
 .bg-img {
     width: 100%;
     height: 100vh;
     position: relative; /* برای تنظیم موقعیت کارت دعوت */
-    animation: zoomOut 5s infinite alternate; /* انیمیشن زوم */
+    animation: zoomOut 10s infinite alternate; /* انیمیشن زوم */
+}
+.title{
+    font-family: 'IranNastaliq';
+    font-size: 2.4rem;
+    margin-top: -1.5rem;
+    color: rgba(255, 0, 0, 0.642);
+} .date {
+    font-size: 2.5rem; /* اندازه متن تاریخ */
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+.month {
+    font-size: 1.1rem; /* اندازه متن ماه */
+    color: #2980b9; /* رنگ ماه */
+    font-weight: bold; /* برجسته بودن ماه */
+    padding-right: 1px;
+    padding: 2px;
 }
 
 .container {
@@ -33,31 +71,95 @@
 }
 .invitation > .span_top,
 .invitation > .span_top_down {
-    /* width: 25rem; */
+    width: 18rem;
+    font-family: "Shekasteh", sans-serif; 
+    font-size: 1.3rem;
     margin: auto;
 }
 .names {
     /* padding: 2=rem 0; */
-    font-size: 1.8rem; /* اندازه بزرگتر برای نام‌ها */
+    font-size: 2.8rem; /* اندازه بزرگتر برای نام‌ها */
     font-weight: bold; /* پررنگ */
     color: #6a617a; /* رنگ زیبا */
+    font-family: "IranNastaliq";
     margin: 0;
+}
+.names-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* تنظیم محتوا به سمت چپ */
+    /* margin-top: 2rem; */
+    margin-left: 2rem; /* فاصله از سمت چپ */
+    margin-top: -4rem;
+}
+
+.names {
+    font-size: 3.5rem; /* اندازه بزرگتر برای نام‌ها */
+    font-weight: bold; /* پررنگ */
+    color: #6a617a; /* رنگ زیبا */
+    font-family: "IranNastaliq";
+    margin-bottom: 1.5rem; /* فاصله بین دو نام */
+    position: relative;
+}
+
+.names-container  > .names:nth-child(1) {
+    margin-left: 9rem;
+}
+
+.names-container  > .names:nth-child(2) {
+    margin-left: -7rem;
+    margin-top: -5rem;
+}
+
+
+.names:nth-child(2) {
+    transform: translateY(0.5rem); /* انتقال نام دوم به پایین */
+}
+
+.p-0{
+    margin-top: -4rem;
+}
+.namespace{
+font-size: 2.5rem;
+font-family: "Shekasteh", sans-serif; 
+
+    /* font-family: "IranNastaliq"; */
+  
 }
 .date{
     padding-top: 3rem;
+    font-family: 'BTraffiBold_0';
+
 }
 .date, .details {
-    font-size: 1rem; /* اندازه متن برای تاریخ و جزئیات */
+    font-size: 1.4rem; /* اندازه متن برای تاریخ و جزئیات */
     color: #34495e; /* رنگ ملایم */
-    margin: 5px 0;
+    margin: 0px 0;
+    margin-top: -1.5rem;
+    line-height: 2;
+    padding-bottom: 1rem;
+    font-family: 'BTraffiBold_0';
+
 
 }
-
+.time-range {
+    font-size: 1.3rem; /* اندازه متن */
+    color: #7d8e9f; /* رنگ ملایم */
+    padding: 10px 20px; /* فضای داخلی */
+    border-radius: 15px; /* گرد کردن گوشه‌ها */
+    font-family: 'BTraffiBold_0';
+}
+   
 .poem {
-    font-size: 1rem; /* اندازه متن شعر */
-    color: #7f8c8d; /* رنگ ملایم */
+    font-size: 1.5rem; /* اندازه متن شعر */
+    color: #525555; /* رنگ ملایم */
     margin: 10px 0;
+    width: 23rem;
     line-height: 1.5; /* فاصله بین خطوط */
+    font-family: "Shekasteh", sans-serif; 
+    overflow: hidden;
+    text-align: center;
+
 }
 
 .border-decoration {
