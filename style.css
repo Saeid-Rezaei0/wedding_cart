@@ -97,22 +97,23 @@ body {
 .date {
     font-family: 'BTraffiBold_0';
     font-size: 1.1rem;
+    /* color: #34495e; */
     color: #34495e;
     /* margin: 1.5rem 0; */
-    margin-top: 0.6rem;
-    margin-bottom: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 2.3;
 }
 
 .month {
     font-size: 1rem;
-    color: #e74c3c;
+    color: #34495e;
     /* color: #2980b9; */
 }
 
 .details {
     font-size: 1.1rem;
-    color: #7f8c8d;
-   margin-top: -0.5rem;
+    color: #34495e;
+   margin-top: -2rem;
    padding: 2rem 0;
    /* padding-bottom: 1rem; */
 }
@@ -120,14 +121,15 @@ body {
 .time-range {
     font-size: 1.2rem;
     color: #34495e;
-    margin-top: 0.5rem;
+    margin-top: 0rem;
     padding-right: 1rem;
 }
 
 .poem {
     font-family: 'Shekasteh', sans-serif;
     font-size: 1.3rem;
-    color: #525555;
+    /* color: #525555; */
+    color: #020202;
     line-height: 2;
     margin-top: -2zrem;
 }
@@ -150,10 +152,10 @@ body {
 }
 
 .top__right {
-    top: 0;
     right: 0;
-    animation: swayRight 6s ease-in-out infinite alternate;
+    animation: swayRight 7s ease-in-out infinite alternate;
 }
+
 
 .bottom__left {
     bottom: 0;
@@ -189,4 +191,41 @@ body {
     0% { transform: translateX(0) translateY(0); opacity: 1; }
     50% { transform: translateX(5px) translateY(-3px); opacity: 0.9; }
     100% { transform: translateX(-5px) translateY(3px); opacity: 1; }
+}
+.rotate-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    z-index: 9999;
+    text-align: center;
+    width: 80%;
+}
+
+.close-icon {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    font-size: 1.5rem;
+    cursor: pointer; /* تغییر نشانگر به دست */
+    color: white; /* رنگ ایکن */
+}
+
+/* مدیا کوری برای عرض کمتر از 900 و ارتفاع کمتر از 500 */
+@media (max-height: 500px) {
+    .rotate-message {
+        display: block;
+    }
+}
+
+@media(max-width: 400px) {
+    .invitation {
+        margin-top: 0;
+    }
 }

@@ -6,29 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دعوتنامه عروسی</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+    <div class="rotate-message">
+        لطفاً گوشی را به حالت عمودی برگردانید
+        <br>
+        برای دید بهتر
+        <span class="close-icon">×</span>
+    </div>
+
     <div class="container">
-        <!-- <img src="IMG_20241019_191810.jpg" class="bg-img" alt="Background Image"> -->
         <img src="image/top__left.jpg" class="top__left" alt="Background Image">
         <img src="image/top__right.jpg" class="top__right" alt="Background Image">
         <img src="image/bottom__left.jpg" class="bottom__left" alt="Background Image">
         <img src="image/bottom__right.jpg" class="bottom__right" alt="Background Image">
 
-        <!-- کارت دعوت -->
         <div class="invitation">
             <span class="title">بنام حضرت عشق</span>
             <div class="span_top">به سنت عشق گرد هم آییم</div>
             <div class="span_top_down">آنجا که دوست داشتن تنها کلام زندگی است</div>
 
-            <!-- اطلاعات عروس و داماد -->
             <div class="names-container">
                 <div class="names">اقا میرزا محمد علی شیرازی</div>
                 <div class="names">زهرا سید محمدباقر موسوی زاده قمی</div>
             </div>
 
-            <!-- تاریخ و آدرس تالار -->
             <div class="date">تاریخ: ۱۴۰4/۰1/28
                 <div class="time-range" dir="rtl">19 الی 23
                     <span class="month">(به صرف شام)</span>
@@ -37,12 +41,19 @@
 
             <div class="details">آدرس : اصفهان، کوی امام جعفر صادق، باغ عمارت قصر سفید</div>
 
-            <!-- شعر زیبا -->
             <div class="poem">
-                <p>به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا سادات برایمان ارزشمند است و خوشحال می‌شویم که این شادی را با شما به اشتراک بگذاریم. حضور گرم و صمیمی شما در این جشن موجب شادی و افتخار ما خواهد بود.</p>
+                <p>به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا سادات برایمان ارزشمند است و خوشحال می‌شویم که این شادی را با شما به اشتراک بگذاریم حضور گرم و صمیمی شما در این جشن موجب شادی و افتخار ما خواهد بود</p>
             </div>
         </div>
     </div>
+
 </body>
+<script>
+    let closebtn = document.querySelector(".close-icon")
+    closebtn.addEventListener("click", function(){
+    //   alert("S")
+      document.querySelector(".rotate-message").style.display = "none";
+    })
+</script>
 
 </html>
