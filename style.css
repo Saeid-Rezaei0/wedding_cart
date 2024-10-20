@@ -114,7 +114,7 @@ body {
     font-size: 1.1rem;
     color: #34495e;
    margin-top: -2rem;
-   line-height: 2;
+   line-height: 2 !important;
    padding: 2rem 0;
    /* padding-bottom: 1rem; */
 }
@@ -123,8 +123,8 @@ body {
     font-size: 1.2rem;
     color: #34495e;
     /* margin-top: 0rem; */
-    margin: 0.7rem 0;
-    padding: 1rem 0;
+    margin: 0.5rem 0;
+    padding: 0.8rem 0;
     padding-right: 1rem;
 }
 
