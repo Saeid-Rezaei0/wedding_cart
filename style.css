@@ -57,7 +57,7 @@ body {
 .span_top_down {
     font-family: 'Shekasteh', sans-serif;
     font-size: 1.3rem;
-    margin: 0.5rem 0;
+    /* margin: 0.5rem 0; */
     animation: fadeIn 3s ease-out 1s;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -114,7 +114,7 @@ body {
 .details {
     font-size: 1.1rem;
     color: #34495e;
-    margin-top: -2rem;
+    /* margin-top: -1rem; */
     line-height: 1.8;
     padding: 1rem 0;
     animation: fadeIn 6s ease-out 4s;
@@ -165,11 +165,13 @@ body {
 .bottom__left {
     bottom: 0;
     left: 0;
+    padding-top: 1.5rem;
     animation: floatLeft 5s ease-in-out infinite alternate;
 }
 
 .bottom__right {
     bottom: 0;
+    padding-top: 1.5rem;
     right: 0;
     animation: floatRight 7s ease-in-out infinite alternate;
 }
@@ -218,7 +220,11 @@ body {
     text-align: center;
     width: 80%;
 }
-
+@media(max-height:500px){
+    .rotate-message {
+        display: block;
+    }
+}
 .close-icon {
     position: absolute;
     top: 0;
