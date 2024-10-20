@@ -10,194 +10,183 @@
     font-family: 'BTraffiBold_0';
     src: url('font/B\ Traffic\ Bold_0.ttf') format('truetype');
 }
-@font-face {
-    font-family: 'BTraffi';
-    src: url('font/B\ Traffic_0.ttf') format('truetype');
-}
-
 
 * {
-    padding: 0;
     margin: 0;
-    /* استفاده از فونت سفارشی */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'BTraffiBold_0', sans-serif;
     overflow-x: hidden;
-}
-.bg-img {
-    width: 100%;
-    height: 100vh;
-    position: relative; /* برای تنظیم موقعیت کارت دعوت */
-    animation: zoomOut 10s infinite alternate; /* انیمیشن زوم */
-}
-.title{
-    font-family: 'IranNastaliq';
-    font-size: 2.4rem;
-    margin-top: -1.5rem;
-    color: rgba(255, 0, 0, 0.642);
-} .date {
-    font-size: 2.5rem; /* اندازه متن تاریخ */
-    color: #34495e;
     text-align: center;
-    margin-bottom: 1rem;
-}
+    max-width: 1000px;
+    overflow-x: hidden;
+    margin: auto;
 
-
-.month {
-    font-size: 1.1rem; /* اندازه متن ماه */
-    color: #2980b9; /* رنگ ماه */
-    font-weight: bold; /* برجسته بودن ماه */
-    padding-right: 1px;
-    padding: 2px;
 }
 
 .container {
-    position: relative; /* موقعیت برای کارت دعوت */
-    height: 100vh; /* اطمینان از اینکه کانتینر تمام ارتفاع را پر کند */
+    position: relative;
+    width: 100%;
+    height:100vh;
 }
+
 .invitation {
     width: 90%;
     max-width: 500px;
-    text-align: center;
-    height: auto;
+    padding: 2rem;
+    margin-top: -2rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
-    animation: fadeIn 1s forwards;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    border-radius: 15px;
+    /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); */
+    text-align: center;
 }
 
-.invitation > .span_top_down{
-    padding-bottom: 6rem;
+.title {
+    font-family: 'IranNastaliq';
+    font-size: 2.4rem;
+    color: #e74c3c;
+    z-index: 100;
 }
-.invitation > .span_top,
-.invitation > .span_top_down {
-    width: 18rem;
-    font-family: "Shekasteh", sans-serif; 
+
+.span_top,
+.span_top_down {
+    font-family: 'Shekasteh', sans-serif;
     font-size: 1.3rem;
-    margin: auto;
+    margin: 0.5rem 0;
 }
-.names {
-    /* padding: 2=rem 0; */
-    font-size: 2.8rem; /* اندازه بزرگتر برای نام‌ها */
-    font-weight: bold; /* پررنگ */
-    color: #6a617a; /* رنگ زیبا */
-    font-family: "IranNastaliq";
-    margin: 0;
-}
+
 .names-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* تنظیم محتوا به سمت چپ */
-    /* margin-top: 2rem; */
-    margin-left: 2rem; /* فاصله از سمت چپ */
-    margin-top: -4rem;
+    align-items: center;
+    /* margin-top: rem; */
 }
 
 .names {
-    font-size: 3.5rem; /* اندازه بزرگتر برای نام‌ها */
-    font-weight: bold; /* پررنگ */
-    color: #6a617a; /* رنگ زیبا */
-    font-family: "IranNastaliq";
-    margin-bottom: 1.5rem; /* فاصله بین دو نام */
-    position: relative;
+    font-family: 'IranNastaliq';
+    font-size: 3rem;
+    color: #6a617a;
+    margin: 0.5rem 0;
 }
 
-.names-container  > .names:nth-child(1) {
-    margin-left: 9rem;
+/* متن اول سمت راست باشد */
+.names:first-child {
+    align-self: flex-end;
+    text-align: right;
+    /* margin-top: -1.7rem; */
+    padding-right: 0.5rem;
 }
 
-.names-container  > .names:nth-child(2) {
-    margin-left: -8.5rem;
-    margin-top: -5rem;
+/* متن دوم سمت چپ باشد */
+.names:last-child {
+    align-self: flex-start;
+    text-align: left;
+    margin-top: -1.7rem;
+    padding-left: 0rem;
 }
 
 
-.names:nth-child(2) {
-    transform: translateY(0.5rem); /* انتقال نام دوم به پایین */
-}
-
-.p-0{
-    margin-top: -4rem;
-}
-.namespace{
-font-size: 2.5rem;
-font-family: "Shekasteh", sans-serif; 
-
-    /* font-family: "IranNastaliq"; */
-  
-}
-.date{
-    padding-top: 3rem;
+.date {
     font-family: 'BTraffiBold_0';
-
-}
-.date, .details {
-    font-size: 1.4rem; /* اندازه متن برای تاریخ و جزئیات */
-    color: #34495e; /* رنگ ملایم */
-    margin: 0px 0;
-    margin-top: -1.5rem;
-    line-height: 2;
-    padding-bottom: 1rem;
-    font-family: 'BTraffiBold_0';
-
-
-}
-.time-range {
-    font-size: 1.3rem; /* اندازه متن */
-    color: #7d8e9f; /* رنگ ملایم */
-    padding: 10px 20px; /* فضای داخلی */
-    border-radius: 15px; /* گرد کردن گوشه‌ها */
-    font-family: 'BTraffiBold_0';
-}
-   
-.poem {
     font-size: 1.5rem;
-    color: #525555;
-    /* margin: 10px 0; */
-    line-height: 2;
-    text-align: center;
-    overflow: visible; /* حذف مشکل اسکرول بار */
-    white-space: normal; /* متن به صورت طبیعی شکسته می‌شود */
-    word-wrap: break-word; /* متن در صورت طولانی بودن به خط بعدی می‌رود */
-    font-weight: normal;
-    font-style: normal;
-    /* line-height: 1.5; */
-    font-family: "Shekasteh", sans-serif; 
+    color: #34495e;
+    /* margin: 1.5rem 0; */
+    margin-top: 0.6rem;
+    margin-bottom: 1.5;
 }
 
+.month {
+    font-size: 1rem;
+    color: #e74c3c;
+    /* color: #2980b9; */
+}
 
-.border-decoration {
+.details {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+   margin-top: -0.5rem;
+   padding: 2rem 0;
+   /* padding-bottom: 1rem; */
+}
+
+.time-range {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin-top: 0.5rem;
+    padding-right: 1rem;
+}
+
+.poem {
+    font-family: 'Shekasteh', sans-serif;
+    font-size: 1.3rem;
+    color: #525555;
+    line-height: 2;
+    margin-top: -2zrem;
+}
+
+.top__left,
+.top__right,
+.bottom__left,
+.bottom__right {
     position: absolute;
+    width: 50%;
+    height: 50vh;
+    background-size: cover;
+    /* object-fit: cover; */
+}
+
+.top__left {
+    top: 0;
+    left: 0;
+    animation: swayLeft 4s ease-in-out infinite alternate;
+}
+
+.top__right {
     top: 0;
     right: 0;
+    animation: swayRight 6s ease-in-out infinite alternate;
+}
+
+.bottom__left {
     bottom: 0;
     left: 0;
-    margin: 15px;
-    pointer-events: none; /* برای جلوگیری از تداخل در کلیک‌ها */
+    animation: floatLeft 5s ease-in-out infinite alternate;
 }
 
-/* انیمیشن زوم */
-@keyframes zoomOut {
-    0% {
-        transform: scale(0) translateY(-2%) translateX(5%);
-    }
-    20% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1.1) translateX(5%) translateY(-2%);
-    }
+.bottom__right {
+    bottom: 0;
+    right: 0;
+    animation: floatRight 7s ease-in-out infinite alternate;
 }
 
-/* انیمیشن فید این */
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* شروع از شفافیت صفر */
-    }
-    to {
-        opacity: 1; /* پایان با شفافیت کامل */
-    }
+@keyframes swayLeft {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(-5px) translateY(3px); }
+    100% { transform: translateX(3px) translateY(-2px); }
+}
+
+@keyframes swayRight {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(5px) translateY(-3px); }
+    100% { transform: translateX(-5px) translateY(2px); }
+}
+
+@keyframes floatLeft {
+    0% { transform: translateX(0) translateY(0); opacity: 1; }
+    50% { transform: translateX(-4px) translateY(2px); opacity: 0.9; }
+    100% { transform: translateX(2px) translateY(-2px); opacity: 1; }
+}
+
+@keyframes floatRight {
+    0% { transform: translateX(0) translateY(0); opacity: 1; }
+    50% { transform: translateX(5px) translateY(-3px); opacity: 0.9; }
+    100% { transform: translateX(-5px) translateY(3px); opacity: 1; }
 }
