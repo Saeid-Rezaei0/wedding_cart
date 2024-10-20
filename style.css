@@ -29,7 +29,7 @@ body {
 .container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 105vh;
 }
 
 .invitation {
@@ -116,7 +116,8 @@ body {
     color: #34495e;
     /* margin-top: -1rem; */
     line-height: 1.8;
-    padding: 1rem 0;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
     animation: fadeIn 6s ease-out 4s;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -127,7 +128,7 @@ body {
     color: #34495e;
     margin: 0.5rem 0;
     padding-right: 1rem;
-    padding: 0.8rem 0;
+   padding: 0;
 }
 
 .poem {
@@ -165,7 +166,7 @@ body {
 .bottom__left {
     bottom: 0;
     left: 0;
-    margin-top: 1rem;
+    margin-top: 2.4rem;
     padding-top: 1.5rem;
     animation: floatLeft 5s ease-in-out infinite alternate;
 }
@@ -173,7 +174,7 @@ body {
 .bottom__right {
     bottom: 0;
     padding-top: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 2.4rem;
     right: 0;
     animation: floatRight 7s ease-in-out infinite alternate;
 }
