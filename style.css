@@ -17,6 +17,7 @@
     box-sizing: border-box;
 }
 body {
+    height: 95vh !important;
     background-color: #ffffff !important; /* اجباری کردن پس‌زمینه سفید */
     color: #000000; /* اطمینان از خوانایی متن با رنگ مشکی */
     font-family: 'BTraffiBold_0', sans-serif;
@@ -24,7 +25,6 @@ body {
     text-align: center;
     max-width: 1000px;
     position: relative;
-    height: 100vh;
     -webkit-user-select: none; /* برای مرورگرهای WebKit مثل Chrome */
     -moz-user-select: none;    /* برای مرورگرهای Mozilla */
     -ms-user-select: none;     /* برای مرورگرهای قدیمی IE */
@@ -33,7 +33,7 @@ body {
 }
 .swiper {
     width: 100%;
-    height: 100vh !important;
+    height: 95vh !important;
   }
 
   .swiper-slide {
@@ -76,7 +76,7 @@ body {
 
   .text-overlay {
     position: absolute;
-    top: 50%; /* موقعیت عمودی مرکز */
+    top: 45%; /* موقعیت عمودی مرکز */
     left: 50%; /* موقعیت افقی مرکز */
     transform: translate(-50%, 50%); /* شروع حرکت از پایین */
     text-align: right;
@@ -129,6 +129,7 @@ body {
 .event-time {
     font-size: 2.5rem;
     margin-top: -2rem ;
+    padding-top: 1rem;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
