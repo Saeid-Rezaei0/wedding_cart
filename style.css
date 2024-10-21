@@ -510,11 +510,11 @@ img {
     }
 
     .date {
-        font-size: 1.2rem; /* سایز فونت تاریخ کمتر */
+        font-size: 0.9rem; /* سایز فونت تاریخ کمتر */
     }
 
     .event-time {
-        font-size: 1.5rem; /* سایز فونت زمان کمتر */
+        font-size: 0.9rem; /* سایز فونت زمان کمتر */
     }
 
     .start-time,
