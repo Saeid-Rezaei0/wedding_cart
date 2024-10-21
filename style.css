@@ -161,7 +161,7 @@ display: none !important;
   .autoplay-progress {
     position: absolute;
     right: 16px;
-    bottom: 10%;
+    bottom: 9%;
     z-index: 10;
     width: 48px;
     height: 48px;
@@ -310,9 +310,10 @@ display: none !important;
     bottom: 10% !important;
 }
 .swiper-pagination-bullet{
-    width: 12px !important;
+   display: none !important;
+    /* width: 12px !important;
     height: 10px !important;
-    border-radius: 0.8rem!important;
+    border-radius: 0.8rem!important; */
 }
 
 .container {
