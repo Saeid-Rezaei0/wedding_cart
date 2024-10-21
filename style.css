@@ -426,7 +426,8 @@ img {
     font-size: 2em;
     width: 35rem;
     font-family: "Shekasteh";
-    color: #7f7f7f;
+    /* color: #7f7f7f; */
+    color: #020202;
   }
   
   .initialsfirst {
