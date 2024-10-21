@@ -150,9 +150,8 @@ body {
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   }
-
   .myslider2 {
-    background-image: url("image/IMG_20241021_142951 (1).jpg");
+    background-image: url("image/soft-empty-space-background-with-flowers_1069839-4030.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
@@ -181,8 +180,9 @@ body {
     padding-left: 1rem;
 }
 .myslider__slideer__3 {
-    background-image: url("image/main__s_3.jpg");
+    /* background-image: url("image/main__s_3.jpg"); */
     background-size: cover;
+    background-image: url("image/move).jpg");
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
@@ -193,10 +193,10 @@ body {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(-2px); /* حرکت به چپ */
+        transform: translateY(5px); /* حرکت به چپ */
     }
     100% {
-        transform: translateX(5px); /* حرکت به راست */
+        transform: translateY(-10px); /* حرکت به راست */
     }
 }
 
@@ -216,8 +216,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
     padding: 10px;
+    padding-top: 3rem;
     font-size: 2.5rem; 
     font-family: 'IranNastaliq';
 }
@@ -514,7 +515,10 @@ img {
     }
 
     .event-time {
-        font-size: 0.9rem; /* سایز فونت زمان کمتر */
+        font-size: 1.4rem; /* سایز فونت زمان کمتر */
+    }
+    .separator, .dinner{
+        font-size: 20px;
     }
 
     .start-time,
