@@ -9,7 +9,8 @@
 
     <!-- Swiper CSS (Local) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
 
 
 </head>
@@ -53,29 +54,34 @@
 
             <!-- Slide 2: به نام خدا -->
             <div class="swiper-slide ">
-               <div class="myslider2">
-                <div class="card">
-                    <div class="text-overlay">
-                        <span class="date">تاریخ: 1404/01/28 (پنج شنبه)</span>
-                        <br>
-                        <div class="event-time">
-                            <span class="start-time">۱۹</span>
+                <div class="myslider2">
+                    <div class="card">
+                        <div class="text-overlay">
+                            <span class="date">تاریخ: 1404/01/28 (پنج شنبه)</span>
+                            <br>
+                            <div class="event-time">
+                                <span class="dinner">  
+                                    19 الی 23 (به صرف شام)  
+                                </span>
+                                <!-- <span class="start-time">۱۹</span>
                             <span class="separator">الی</span>
                             <span class="end-time">۲۳</span>
-                            <span class="dinner">(به صرف شام)</span>
-                        </div>             
-                           </div>
+                            <span class="dinner">(به صرف شام)</span> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-               </div>
             </div>
-            
-             <!-- Slide 3: به نام خدا -->
-             <div class="swiper-slide myslider__slideer__3">
-                <div class="myslider3_down myslider__slideer__3">
-                 <div class="myslider__slideer__3_donw">
 
-                     <p class="text_wedding">به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا سادات برایمان ارزشمند است و خوشحال میشویم که این شادی را با شما به اشتراک بگذاریم. حضور گرم و صمیمی شما در این جشن موجب شادی و افتخار ما خواهد بود</p>
-                 </div>
+            <!-- Slide 3: به نام خدا -->
+            <div class="swiper-slide myslider__slideer__3">
+                <div class="myslider3_down myslider__slideer__3">
+                    <div class="myslider__slideer__3_donw">
+
+                        <p class="text_wedding">به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا
+                            سادات برایمان ارزشمند است و خوشحال میشویم که این شادی را با شما به اشتراک بگذاریم. حضور گرم
+                            و صمیمی شما در این جشن موجب شادی و افتخار ما خواهد بود</p>
+                    </div>
                 </div>
             </div>
             <div class="swiper-slide ">
@@ -95,91 +101,91 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
     <div class="autoplay-progress">
-      <svg viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r="20"></circle>
-      </svg>
-      <span></span>
-     
-    
-    <!-- Swiper JS (Local) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span></span>
 
-    <!-- Initialize Swiper -->
-    <script>
-        const progressCircle = document.querySelector(".autoplay-progress svg");
-        const progressContent = document.querySelector(".autoplay-progress span");
-        var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 30,
-            centeredSlides: true,
-            autoplay: {
-                delay: 6000, // تاخیر 60 ثانیه‌ای
-                disableOnInteraction: false
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            on: {
-                autoplayTimeLeft(s, time, progress) {
-                    progressCircle.style.setProperty("--progress", 1 - progress);
-                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+
+        <!-- Swiper JS (Local) -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            const progressCircle = document.querySelector(".autoplay-progress svg");
+            const progressContent = document.querySelector(".autoplay-progress span");
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 6000, // تاخیر 60 ثانیه‌ای
+                    disableOnInteraction: false
                 },
-                slideChange: function () {
-                    const currentSlide = swiper.slides[swiper.activeIndex];
-                    
-                    // حذف انیمیشن از اسلایدهای دیگر
-                    document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
-                    document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
-    
-                    // انیمیشن برای اسلاید فعلی
-                    const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
-                    if (textElement) {
-                        textElement.classList.add('animate');
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                on: {
+                    autoplayTimeLeft(s, time, progress) {
+                        progressCircle.style.setProperty("--progress", 1 - progress);
+                        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                    },
+                    slideChange: function () {
+                        const currentSlide = swiper.slides[swiper.activeIndex];
+
+                        // حذف انیمیشن از اسلایدهای دیگر
+                        document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
+                        document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
+
+                        // انیمیشن برای اسلاید فعلی
+                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
+                        if (textElement) {
+                            textElement.classList.add('animate');
+                        }
+
+                        // بروزرسانی کلاس active برای دکمه‌های ناوبری
+                        updateActiveButton();
                     }
-    
-                    // بروزرسانی کلاس active برای دکمه‌های ناوبری
-                    updateActiveButton();
+                }
+            });
+
+            // رویدادهای لمسی برای توقف و شروع مجدد اسلاید خودکار
+            const swiperContainer = document.querySelector(".swiper");
+            swiperContainer.addEventListener("touchstart", () => {
+                swiper.autoplay.stop();
+            });
+            swiperContainer.addEventListener("touchend", () => {
+                swiper.autoplay.start();
+            });
+
+            // تابع برای بروزرسانی دکمه‌های فعال
+            function updateActiveButton() {
+                const buttons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
+                buttons.forEach((button) => {
+                    button.classList.remove('active');
+                });
+
+                // اضافه کردن کلاس active به دکمه فعلی
+                if (swiper.isEnd) {
+                    document.querySelector('.swiper-button-next').classList.add('active');
+                } else if (swiper.isBeginning) {
+                    document.querySelector('.swiper-button-prev').classList.add('active');
                 }
             }
-        });
-    
-        // رویدادهای لمسی برای توقف و شروع مجدد اسلاید خودکار
-        const swiperContainer = document.querySelector(".swiper");
-        swiperContainer.addEventListener("touchstart", () => {
-            swiper.autoplay.stop();
-        });
-        swiperContainer.addEventListener("touchend", () => {
-            swiper.autoplay.start();
-        });
-    
-        // تابع برای بروزرسانی دکمه‌های فعال
-        function updateActiveButton() {
-            const buttons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
-            buttons.forEach((button) => {
-                button.classList.remove('active');
+        </script>
+
+
+
+        <script>
+            let closebtn = document.querySelector(".close-icon");
+            closebtn.addEventListener("click", function () {
+                document.querySelector(".rotate-message").style.display = "none";
             });
-    
-            // اضافه کردن کلاس active به دکمه فعلی
-            if (swiper.isEnd) {
-                document.querySelector('.swiper-button-next').classList.add('active');
-            } else if (swiper.isBeginning) {
-                document.querySelector('.swiper-button-prev').classList.add('active');
-            }
-        }
-    </script>
-    
-    
-    
-    <script>
-         let closebtn = document.querySelector(".close-icon");
-      closebtn.addEventListener("click", function () {
-          document.querySelector(".rotate-message").style.display = "none";
-      });
-    </script>
+        </script>
 
 </body>
 
