@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Swiper CSS (Local) -->
-    <link rel="stylesheet" href="/node_modules/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
 </head>
 
 <body>
@@ -19,8 +21,10 @@
         <span class="close-icon">×</span>
     </div>
 
+
+
     <!-- Swiper Container -->
-    <div class="swiper-container">
+    <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <!-- Slide 1: دعوتنامه -->
             <div class="swiper-slide">
@@ -48,43 +52,71 @@
 
             <!-- Slide 2: به نام خدا -->
             <div class="swiper-slide myslider2">
-                <div class="slide-content">
-                    Lorem, ipsum.
+                <div class="card">
+                    <div class="text-overlay">
+                        <span class="date">تاریخ: 1404/01/28 (فروردین)</span>
+                        <br>
+                        <div class="event-time">
+                            <span class="start-time">۱۹</span>
+                            <span class="separator">الی</span>
+                            <span class="end-time">۲۳</span>
+                            <span class="dinner">(به صرف شام)</span>
+                        </div>                    </div>
                 </div>
             </div>
+            
 
         </div>
 
         <!-- نقاط ناوبری -->
         <div class="swiper-pagination"></div>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <div class="autoplay-progress">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span></span>
 
     <!-- Swiper JS (Local) -->
-    <script src="/node_modules/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1, // نمایش تنها یک اسلاید در هر لحظه
-      spaceBetween: 0, // فاصله بین اسلایدها را صفر کنید
-      loop: true, // برای چرخش مداوم اسلایدها
-      navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-      },
-      autoplay: {
-                  delay: 1000, // تاخیر 1 ثانیه برای تغییر خودکار اسلایدها
-              },
-  });
-  
-          // دکمه بستن پیام چرخش صفحه
-          let closebtn = document.querySelector(".close-icon");
-          closebtn.addEventListener("click", function () {
-              document.querySelector(".rotate-message").style.display = "none";
-          });
-      </script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 6000, // تغییر به 2 ثانیه
+                disableOnInteraction: false
+            },
+        pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    progressCircle.style.setProperty("--progress", 1 - progress);
+                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                }
+            }
+        });
+    </script>
+    <script>
+         let closebtn = document.querySelector(".close-icon");
+      closebtn.addEventListener("click", function () {
+          document.querySelector(".rotate-message").style.display = "none";
+      });
+    </script>
+
 </body>
 
 </html>
