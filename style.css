@@ -17,24 +17,24 @@
     box-sizing: border-box;
 }
 body {
-    height: 95vh !important;
-    background-color: #ffffff !important; /* اجباری کردن پس‌زمینه سفید */
-    color: #000000; /* اطمینان از خوانایی متن با رنگ مشکی */
+    height: 100vh; /* تغییر به 100vh */
+    background-color: #ffffff !important; 
+    color: #000000; 
     font-family: 'BTraffiBold_0', sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden; /* فقط overflow در محور x را پنهان کنید */
+    overflow-y: hidden; /* overflow در محور y را هم پنهان کنید */
     text-align: center;
     max-width: 1000px;
     position: relative;
-    -webkit-user-select: none; /* برای مرورگرهای WebKit مثل Chrome */
-    -moz-user-select: none;    /* برای مرورگرهای Mozilla */
-    -ms-user-select: none;     /* برای مرورگرهای قدیمی IE */
     user-select: none;     
-    margin: auto;
+    margin: 0; /* حذف مارجین */
 }
+
 .swiper {
     width: 100%;
-    height: 95vh !important;
-  }
+    height: 100vh; /* تغییر به 100vh */
+}
+
 
   .swiper-slide {
     text-align: center;
@@ -506,15 +506,15 @@ img {
 .bottom__left {
     bottom: 0;
     left: 0;
-    margin-top: 2.4rem;
-    padding-top: 1.5rem;
+    /* margin-top: 2.4rem;
+    padding-top: 1.5rem; */
     animation: floatLeft 5s ease-in-out infinite alternate;
 }
 
 .bottom__right {
     bottom: 0;
-    padding-top: 1.5rem;
-    margin-top: 2.4rem;
+    /* padding-top: 1.5rem;
+    margin-top: 2.4rem; */
     right: 0;
     animation: floatRight 7s ease-in-out infinite alternate;
 }
