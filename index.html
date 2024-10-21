@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دعوتنامه عروسی</title>
+    <title>دعوت نامه عروسی</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- Swiper CSS (Local) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
 
 
 </head>
@@ -51,10 +52,11 @@
             </div>
 
             <!-- Slide 2: به نام خدا -->
-            <div class="swiper-slide myslider2">
+            <div class="swiper-slide ">
+               <div class="myslider2">
                 <div class="card">
                     <div class="text-overlay">
-                        <span class="date">تاریخ: 1404/01/28 (فروردین)</span>
+                        <span class="date">تاریخ: 1404/01/28 (پنج شنبه)</span>
                         <br>
                         <div class="event-time">
                             <span class="start-time">۱۹</span>
@@ -64,6 +66,7 @@
                         </div>             
                            </div>
                 </div>
+               </div>
             </div>
             
              <!-- Slide 3: به نام خدا -->
@@ -75,7 +78,7 @@
                  </div>
                 </div>
             </div>
-            <div class="swiper-slide 4">
+            <div class="swiper-slide ">
                 <div class="myslider__4 ">
                     <p class="location">
                         آدرس :اصفهان, کوی امام جعفر صادق <br>, باغ عمارت قصر سفید
@@ -96,7 +99,20 @@
         <circle cx="24" cy="24" r="20"></circle>
       </svg>
       <span></span>
-
+      <div class="swiper-button-icons">
+        <div class="swiper-button-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+            </svg>
+        </div>
+        <div class="swiper-button-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+        </div>
+        <i class="fas fa-pause swiper-button-pause"></i>
+    </div>
+    
     <!-- Swiper JS (Local) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -108,12 +124,10 @@
             spaceBetween: 30,
             centeredSlides: true,
             autoplay: {
-                delay: 6000, // تغییر به 2 ثانیه
+                delay: 6000, // تاخیر 60 ثانیه‌ای
                 disableOnInteraction: false
             },
-        
-            
-        pagination: {
+            pagination: {
                 el: ".swiper-pagination",
                 clickable: true
             },
@@ -125,11 +139,53 @@
                 autoplayTimeLeft(s, time, progress) {
                     progressCircle.style.setProperty("--progress", 1 - progress);
                     progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                },
+                slideChange: function () {
+                    const currentSlide = swiper.slides[swiper.activeIndex];
+                    
+                    // حذف انیمیشن از اسلایدهای دیگر
+                    document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
+                    document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
+    
+                    // انیمیشن برای اسلاید فعلی
+                    const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
+                    if (textElement) {
+                        textElement.classList.add('animate');
+                    }
+    
+                    // بروزرسانی کلاس active برای دکمه‌های ناوبری
+                    updateActiveButton();
                 }
             }
         });
-        
+    
+        // رویدادهای لمسی برای توقف و شروع مجدد اسلاید خودکار
+        const swiperContainer = document.querySelector(".swiper");
+        swiperContainer.addEventListener("touchstart", () => {
+            swiper.autoplay.stop();
+        });
+        swiperContainer.addEventListener("touchend", () => {
+            swiper.autoplay.start();
+        });
+    
+        // تابع برای بروزرسانی دکمه‌های فعال
+        function updateActiveButton() {
+            const buttons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
+            buttons.forEach((button) => {
+                button.classList.remove('active');
+            });
+    
+            // اضافه کردن کلاس active به دکمه فعلی
+            if (swiper.isEnd) {
+                document.querySelector('.swiper-button-next').classList.add('active');
+            } else if (swiper.isBeginning) {
+                document.querySelector('.swiper-button-prev').classList.add('active');
+            }
+        }
     </script>
+    
+    
+    
     <script>
          let closebtn = document.querySelector(".close-icon");
       closebtn.addEventListener("click", function () {
