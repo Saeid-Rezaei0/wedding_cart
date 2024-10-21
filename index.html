@@ -7,6 +7,8 @@
     <title>دعوتنامه عروسی</title>
     <link rel="stylesheet" href="style.css">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -17,43 +19,71 @@
         <span class="close-icon">×</span>
     </div>
 
-    <div class="container">
-        <img src="image/top__left.jpg" class="top__left" alt="Background Image">
-        <img src="image/top__right.jpg" class="top__right" alt="Background Image">
-        <img src="image/bottom__left.jpg" class="bottom__left" alt="Background Image">
-        <img src="image/bottom__right.jpg" class="bottom__right" alt="Background Image">
+    <!-- Swiper Container -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
 
-        <div class="invitation">
-            <span class="title">بنام حضرت عشق</span>
-            <div class="span_top">به سنت عشق گرد هم آییم</div>
-            <div class="span_top_down">آنجا که دوست داشتن تنها کلام زندگی است</div>
+            <!-- Slide 1: دعوتنامه -->
+            <div class="swiper-slide">
+                <div class="container">
+                    <img src="image/top__left.jpg" class="top__left" alt="Background Image">
+                    <img src="image/top__right.jpg" class="top__right" alt="Background Image">
+                    <img src="image/bottom__left.jpg" class="bottom__left" alt="Background Image">
+                    <img src="image/bottom__right.jpg" class="bottom__right" alt="Background Image">
 
-            <div class="names-container">
-                <div class="names">اقا میرزا محمد علی شیرازی</div>
-                <div class="names">زهرا سید محمدباقر موسوی زاده قمی</div>
-            </div>
+                    <div class="invitation">
+                        <span class="title">بنام حضرت عشق</span>
+                        <div class="span_top">به سنت عشق گرد هم آییم</div>
+                        <div class="span_top_down">آنجا که دوست داشتن تنها کلام زندگی است</div>
+                        <div class="names-container">
+                            <div class="initials">D & A</div>
+                            <div class="names">اقا میرزا محمد علی شیرازی</div>
+                            <div class="names">زهرا سید محمدباقر موسوی زاده قمی</div>
+                          </div>
+                        <!-- <div class="names-container">
+                            <div class="names">اقا میرزا محمد علی شیرازی</div>
+                            <div class="names">زهرا سید محمدباقر موسوی زاده قمی</div>
+                        </div> -->
 
-            <div class="date">تاریخ: ۱۴۰4/۰1/28
-                <div class="time-range" dir="rtl">19 الی 23
-                    <span class="month">(به صرف شام)</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="details">آدرس : اصفهان، کوی امام جعفر صادق، باغ عمارت قصر سفید</div>
-
-            <div class="poem">
-                <p>به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا سادات برایمان ارزشمند است و خوشحال می‌شویم که این شادی را با شما به اشتراک بگذاریم حضور گرم و صمیمی شما در این جشن موجب شادی و افتخار ما خواهد بود</p>
+            <!-- Slide 2: به نام خدا -->
+            <div class="swiper-slide myslider2">
+                <div class="slide-content">
+                    <h1>به نام خدا</h1>
+                </div>
             </div>
+
         </div>
+
+        <!-- نقاط ناوبری -->
+        <div class="swiper-pagination"></div>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true, // چرخه‌ای شدن اسلایدر
+            autoplay: {
+                delay: 7000, // هر ۳ ثانیه اسلاید عوض شود
+                disableOnInteraction: false, // توقف خودکار با تعامل کاربر
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // دکمه بستن پیام چرخش صفحه
+        let closebtn = document.querySelector(".close-icon");
+        closebtn.addEventListener("click", function () {
+            document.querySelector(".rotate-message").style.display = "none";
+        });
+    </script>
 </body>
-<script>
-    let closebtn = document.querySelector(".close-icon")
-    closebtn.addEventListener("click", function(){
-    //   alert("S")
-      document.querySelector(".rotate-message").style.display = "none";
-    })
-</script>
 
 </html>

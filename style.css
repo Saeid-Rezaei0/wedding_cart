@@ -16,9 +16,50 @@
     padding: 0;
     box-sizing: border-box;
 }
+.swiper-container {
+    width: 100%;
+    height: 100vh; /* تمام ارتفاع صفحه */
+}
 
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* تمام عرض صفحه */
+    height: 100%; /* تمام ارتفاع صفحه */
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+}
+.myslider2{
+    background-image: url("image/top__right.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.slide-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 2rem;
+}
+
+.invitation {
+    font-family: 'Shabnam', sans-serif;
+}
+
+/* تنظیمات برای تصویرهای پس‌زمینه */
+img {
+    position: absolute;
+    width: 50px; /* اندازه مناسب */
+    height: 50px; /* اندازه مناسب */
+}
 body {
-    background-color: #ffffff;
+    background-color: #ffffff !important; /* اجباری کردن پس‌زمینه سفید */
+    color: #000000; /* اطمینان از خوانایی متن با رنگ مشکی */
     font-family: 'BTraffiBold_0', sans-serif;
     overflow-x: hidden;
     text-align: center;
@@ -62,38 +103,46 @@ body {
     opacity: 0;
     animation-fill-mode: forwards;
 }
-
 .names-container {
+    text-align: center;
+    padding: 40px;
+    background: url('/mnt/data/-2147483648_-210136.jpg') no-repeat center/cover;
+    border-radius: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .names {
+    font-size: 1.8em;
+    color: #7f7f7f;
+    margin: 0;
+  }
+
+  .names-container::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #dcdcdc;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
+    z-index: -1;
+  }
 
-.names {
-    font-family: 'IranNastaliq';
-    font-size: 3rem;
-    color: #6a617a;
-    margin: 0.5rem 0;
-    animation: fadeIn 4s ease-out 2s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-/* متن اول سمت راست باشد */
-.names:first-child {
-    align-self: flex-end;
-    text-align: right;
-    padding-right: 0.5rem;
-}
-
-/* متن دوم سمت چپ باشد */
-.names:last-child {
-    align-self: flex-start;
-    text-align: left;
-    margin-top: -1.7rem;
-    padding-left: 0;
-}
-
+  .initials {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4em;
+    color: #7f7f7f;
+  }
 .date {
     font-family: 'BTraffiBold_0';
     font-size: 1.1rem;
