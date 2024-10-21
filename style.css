@@ -92,7 +92,7 @@ body {
 
 .date {
     font-weight: bold;
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
     font-family: 'IranNastaliq', sans-serif;
 }
 
@@ -237,6 +237,7 @@ body {
 
 .invitation {
     font-family: 'Shabnam', sans-serif;
+    margin-top: -3rem;
 }
 
 /* تنظیمات برای تصویرهای پس‌زمینه */
@@ -499,5 +500,25 @@ img {
 
     .invitation {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-overlay {
+        font-size: 1rem; /* سایز فونت کوچکتر */
+        padding: 10px; /* padding کمتر */
+    }
+
+    .date {
+        font-size: 1.2rem; /* سایز فونت تاریخ کمتر */
+    }
+
+    .event-time {
+        font-size: 1.5rem; /* سایز فونت زمان کمتر */
+    }
+
+    .start-time,
+    .end-time {
+        font-size: 1.5rem; /* سایز فونت شروع و پایان کمتر */
     }
 }
