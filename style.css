@@ -624,9 +624,3 @@ img {
         font-size: 1.5rem; /* سایز فونت شروع و پایان کمتر */
     }
 }
-@media(max-width: 878px){
-    .span_top,
-    .pan_top_down{
-        font-size: 4rem !important;
-    }
-}
