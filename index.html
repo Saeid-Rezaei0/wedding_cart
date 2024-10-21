@@ -7,8 +7,8 @@
     <title>دعوتنامه عروسی</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Swiper CSS (Local) -->
+    <link rel="stylesheet" href="/node_modules/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -36,15 +36,13 @@
                         <div class="span_top">به سنت عشق گرد هم آییم</div>
                         <div class="span_top_down">آنجا که دوست داشتن تنها کلام زندگی است</div>
                         <div class="names-container">
-                            <div class="initials">D & A</div>
-                            <div class="names">اقا میرزا محمد علی شیرازی</div>
-                            <div class="names">زهرا سید محمدباقر موسوی زاده قمی</div>
-                          </div>
-                        <!-- <div class="names-container">
-                            <div class="names">اقا میرزا محمد علی شیرازی</div>
-                            <div class="names">زهرا سید محمدباقر موسوی زاده قمی</div>
-                        </div> -->
-
+                            <div class="initials">
+                                <span class="initialsfirst"> اقا میرزا محمد علی شیرازی</span>
+                                <br>
+                                <span class="initialssecent"> زهرا سید محمدباقر موسوی زاده قمی
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,7 +50,7 @@
             <!-- Slide 2: به نام خدا -->
             <div class="swiper-slide myslider2">
                 <div class="slide-content">
-                    <h1>به نام خدا</h1>
+                    
                 </div>
             </div>
 
@@ -62,21 +60,27 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper JS (Local) -->
+    <script src="/node_modules/swiper/swiper-bundle.min.js"></script>
 
     <script>
-        var swiper = new Swiper('.swiper-container', {
-            loop: true, // چرخه‌ای شدن اسلایدر
-            autoplay: {
-                delay: 7000, // هر ۳ ثانیه اسلاید عوض شود
-                disableOnInteraction: false, // توقف خودکار با تعامل کاربر
+      var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1, // نمایش تنها یک اسلاید در هر لحظه
+    spaceBetween: 0, // فاصله بین اسلایدها را صفر کنید
+    loop: true, // برای چرخش مداوم اسلایدها
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    autoplay: {
+                delay: 1000, // تاخیر 1 ثانیه برای تغییر خودکار اسلایدها
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
+});
+
 
         // دکمه بستن پیام چرخش صفحه
         let closebtn = document.querySelector(".close-icon");
