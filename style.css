@@ -378,7 +378,7 @@ img {
     font-family: 'Shekasteh', sans-serif;
     font-size: 1.3rem;
     /* margin: 0.5rem 0; */
-    animation: fadeIn 3s ease-out 1s;
+    animation: fadeIn 3s ease-out 2s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
@@ -391,7 +391,7 @@ img {
     position: relative;
     margin-top: 5rem;
     /* border: 3px solid rgba(255, 255, 255, 0.7); */
-    animation: fadeIn 4s ease-out 2s;
+    animation: fadeIn 4s ease-out 4s;
     opacity: 0;
     animation-fill-mode: forwards;
   }
