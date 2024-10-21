@@ -23,3 +23,27 @@ tl
     );
 
      
+
+    var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 1, // نمایش تنها یک اسلاید در هر لحظه
+  spaceBetween: 0, // فاصله بین اسلایدها را صفر کنید
+  loop: true, // برای چرخش مداوم اسلایدها
+  navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  },
+  autoplay: {
+              delay: 1000, // تاخیر 1 ثانیه برای تغییر خودکار اسلایدها
+          },
+});
+
+
+      // دکمه بستن پیام چرخش صفحه
+      let closebtn = document.querySelector(".close-icon");
+      closebtn.addEventListener("click", function () {
+          document.querySelector(".rotate-message").style.display = "none";
+      });
