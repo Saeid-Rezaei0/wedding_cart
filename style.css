@@ -40,6 +40,26 @@ body {
     justify-content: center;
     align-items: center;
   }
+  .swiper-slide {
+    animation: slideIn 1s ease forwards; /* اجرای انیمیشن باز شدن برای هر اسلاید */
+    transform-origin: left; /* باز شدن از چپ به راست */
+    overflow: hidden;
+}
+  /* انیمیشن باز شدن مانند در */
+@keyframes slideIn {
+    0% {
+        transform: scaleX(0); /* شروع انیمیشن با عرض صفر */
+        opacity: 0; /* نامرئی */
+    }
+    100% {
+        transform: scaleX(1); /* به تدریج بزرگ‌تر می‌شود */
+        opacity: 1; /* واضح می‌شود */
+    }
+}
+
+/* تنظیمات برای اسلایدها */
+
+
   .swiper-slide:nth-child(2){
     background-image: url("image/IMG_20241021_142951 (1).jpg");
     background-size: contain;
@@ -139,6 +159,46 @@ body {
     height: 100vh;
     animation: subtleMove 10s ease-in-out infinite; /* انیمیشن با حرکت ریز و تکرارشونده */
 }
+.myslider__4{
+    background-image: url("image/IMG_20241021_142951 (1).jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-color: #F7F7F7;
+    animation: subtleMove 10s ease-in-out infinite; /* انیمیشن با حرکت ریز و تکرارشونده */
+}
+.location{
+    display: flex;
+    height: 98vh;
+    justify-content: center;
+    align-items: center;
+    /* width: 27rem; */
+    font-family: 'IranNastaliq';
+    text-align: center;
+    font-size: 2.2rem;
+    padding-left: 1rem;
+}
+.myslider__slideer__3 {
+    background-image: url("image/main__s_3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    animation:  windMove 10s ease-in-out infinite ;
+}
+@keyframes windMove {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-2px); /* حرکت به چپ */
+    }
+    100% {
+        transform: translateX(5px); /* حرکت به راست */
+    }
+}
 
 /* کی‌فریم برای حرکت ریز */
 @keyframes subtleMove {
@@ -152,7 +212,15 @@ body {
         transform: scale(1) translate(0, 0); /* بازگشت به حالت اولیه */
     }
 }
-
+.text_wedding{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 10px;
+    font-size: 2.5rem; 
+    font-family: 'IranNastaliq';
+}
 
 .container {
     text-align: center;
