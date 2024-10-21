@@ -161,7 +161,7 @@ display: none !important;
   .autoplay-progress {
     position: absolute;
     right: 16px;
-    bottom: 16px;
+    bottom: 10%;
     z-index: 10;
     width: 48px;
     height: 48px;
@@ -305,7 +305,15 @@ display: none !important;
         filter: blur(0); /* حذف تاری */
     }
 }
-
+.swiper-pagination{
+    position: absolute;
+    bottom: 10% !important;
+}
+.swiper-pagination-bullet{
+    width: 12px !important;
+    height: 10px !important;
+    border-radius: 0.8rem!important;
+}
 
 .container {
     text-align: center;
