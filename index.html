@@ -128,7 +128,7 @@ var swiper = new Swiper(".mySwiper", {
     centeredSlides: true,
     loop: false,
     autoplay: {
-        delay: 10000, // تاخیر 10 ثانیه‌ای
+        delay: 1000, // تاخیر 10 ثانیه‌ای
         disableOnInteraction: false
     },
     pagination: {
@@ -159,7 +159,7 @@ var swiper = new Swiper(".mySwiper", {
             progressContent.textContent = `${Math.ceil(time / 1000)}s`;
 
             // چک کردن اگر آخرین اسلاید باشد و زمان تایمر به پایان رسیده باشد
-            if (swiper.isEnd && time === 0) {
+            if (time == 0 && swiper.isEnd ) {
                 swiper.autoplay.stop(); // توقف اسلایدر
                 document.getElementById("endModal").style.display = "flex"; // نمایش مدال
             }

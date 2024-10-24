@@ -490,7 +490,7 @@ img {
 
 .span_top,
 .span_top_down {
-    font-family: 'Shekasteh', sans-serif;
+    font-family: 'Shekasteh' !important;
     font-size: 1.3rem;
     /* margin: 0.5rem 0; */
     animation: fadeIn 3s ease-out 2s;
@@ -542,7 +542,7 @@ img {
     transform: translateX(-50%);
     font-size: 2em;
     width: 35rem;
-    font-family: "Shekasteh";
+    font-family: "Shekasteh" !important;
     /* color: #7f7f7f; */
     color: #020202;
 }
