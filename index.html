@@ -119,62 +119,64 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <!-- Initialize Swiper -->
-   <script>
-    const progressCircle = document.querySelector(".autoplay-progress svg");
-const progressContent = document.querySelector(".autoplay-progress span");
-
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 30,
-    centeredSlides: true,
-    loop: false,
-    autoplay: {
-        delay: 1000, // تاخیر 10 ثانیه‌ای
-        disableOnInteraction: false
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-    },
-    on: {
-        slideChange: function () {
-            const currentSlide = swiper.slides[swiper.activeIndex];
-
-            // حذف انیمیشن از اسلایدهای دیگر
-            document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
-            document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
-
-            // اضافه کردن انیمیشن برای اسلاید فعلی
-            const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
-            if (textElement) {
-                textElement.classList.add('animate');
-            }
-        },
-        autoplayTimeLeft: function (swiper, time, progress) {
-            // بروز رسانی محتوای تایمر و دایره پیشرفت
-            progressCircle.style.setProperty('--progress', 1 - progress);
-            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-
-            // چک کردن اگر آخرین اسلاید باشد و زمان تایمر به پایان رسیده باشد
-            if (time == 0 && swiper.isEnd ) {
-                swiper.autoplay.stop(); // توقف اسلایدر
-                document.getElementById("endModal").style.display = "flex"; // نمایش مدال
-            }
-        }
-    }
-});
-
-// کلیک روی دکمه "باز پخش"
-document.getElementById("replayButton").addEventListener("click", function () {
-    swiper.slideTo(0); // بازگشت به اسلاید اول
-    swiper.autoplay.start(); // شروع دوباره اسلایدر
-    document.getElementById("endModal").style.display = "none"; // بستن مدال
-});
-
-   </script>
+        <script>
+            const progressCircle = document.querySelector(".autoplay-progress svg");
+            const progressContent = document.querySelector(".autoplay-progress span");
+        
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: false, // غیرفعال کردن لوپ
+                autoplay: {
+                    delay: 10000, // تاخیر 1 ثانیه‌ای
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                on: {
+                    slideChange: function () {
+                        const currentSlide = swiper.slides[swiper.activeIndex];
+        
+                        // حذف انیمیشن از اسلایدهای دیگر
+                        document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
+                        document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
+        
+                        // اضافه کردن انیمیشن برای اسلاید فعلی
+                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
+                        if (textElement) {
+                            textElement.classList.add('animate');
+                        }
+                    },
+                    autoplayTimeLeft: function (swiper, time, progress) {
+                        // بروز رسانی محتوای تایمر و دایره پیشرفت
+                        progressCircle.style.setProperty('--progress', 1 - progress);
+                        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        
+                        // شرط آخرین اسلاید و پایان تایمر
+                        if (time <= 100 && swiper.isEnd) {
+                            swiper.autoplay.stop(); // توقف اسلایدر
+                            document.getElementById("endModal").style.display = "flex"; // نمایش مدال
+        
+                            return; // متوقف کردن اجرای کد در اینجا
+                        }
+                    }
+                }
+            });
+        
+            // کلیک روی دکمه "باز پخش"
+            document.getElementById("replayButton").addEventListener("click", function () {
+                swiper.slideTo(0); // بازگشت به اسلاید اول
+                swiper.autoplay.start(); // شروع دوباره اسلایدر
+                document.getElementById("endModal").style.display = "none"; // بستن مدال
+            });
+        </script>
+        
 
 
 
