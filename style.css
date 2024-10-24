@@ -310,9 +310,11 @@ body {
     padding: 30px;
     border-radius: 10px;
     text-align: center;
+    margin-top: 0.8rem;
 }
 
 .modal-button {
+    font-family: 'IranNastaliq', !important;
     background-color: #007bff;
     color: white;
     padding: 8px 20px;
@@ -320,7 +322,6 @@ body {
     margin-top: 0.8rem;
     border-radius: 5px;
     cursor: pointer;
-    font-family: 'IranNastaliq', !important;
 }
 
 
