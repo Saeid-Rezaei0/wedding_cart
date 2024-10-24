@@ -60,8 +60,8 @@
                             <span class="date">تاریخ: 1404/01/28 (پنج شنبه)</span>
                             <br>
                             <div class="event-time">
-                                <span class="dinner">  
-                                    19 الی 23 (به صرف شام)  
+                                <span class="dinner">
+                                    19 الی 23 (به صرف شام)
                                 </span>
                                 <!-- <span class="start-time">۱۹</span>
                             <span class="separator">الی</span>
@@ -93,6 +93,14 @@
                 </div>
             </div>
         </div>
+        <div class="modal" id="endModal">
+            <div class="modal-content">
+                <h2>پایان اسلایدها</h2>
+                <p>برای شروع دوباره روی دکمه زیر کلیک کنید</p>
+                <button class="modal-button" id="replayButton">باز پخش</button>
+            </div>
+        </div>
+
 
         <!-- نقاط ناوبری -->
         <div class="swiper-pagination"></div>
@@ -111,72 +119,62 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <!-- Initialize Swiper -->
-        <script>
-            const progressCircle = document.querySelector(".autoplay-progress svg");
-            const progressContent = document.querySelector(".autoplay-progress span");
-            var swiper = new Swiper(".mySwiper", {
-                spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: {
-                    delay: 10000, // تاخیر 60 ثانیه‌ای
-                    disableOnInteraction: false
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                on: {
-                    autoplayTimeLeft(s, time, progress) {
-                        progressCircle.style.setProperty("--progress", 1 - progress);
-                        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-                    },
-                    slideChange: function () {
-                        const currentSlide = swiper.slides[swiper.activeIndex];
+   <script>
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+const progressContent = document.querySelector(".autoplay-progress span");
 
-                        // حذف انیمیشن از اسلایدهای دیگر
-                        document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: false,
+    autoplay: {
+        delay: 10000, // تاخیر 10 ثانیه‌ای
+        disableOnInteraction: false
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    on: {
+        slideChange: function () {
+            const currentSlide = swiper.slides[swiper.activeIndex];
 
-                        // انیمیشن برای اسلاید فعلی
-                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
-                        if (textElement) {
-                            textElement.classList.add('animate');
-                        }
+            // حذف انیمیشن از اسلایدهای دیگر
+            document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
+            document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
 
-                        // بروزرسانی کلاس active برای دکمه‌های ناوبری
-                        updateActiveButton();
-                    }
-                }
-            });
-
-            // رویدادهای لمسی برای توقف و شروع مجدد اسلاید خودکار
-            const swiperContainer = document.querySelector(".swiper");
-            swiperContainer.addEventListener("touchstart", () => {
-                swiper.autoplay.stop();
-            });
-            swiperContainer.addEventListener("touchend", () => {
-                swiper.autoplay.start();
-            });
-
-            // تابع برای بروزرسانی دکمه‌های فعال
-            function updateActiveButton() {
-                const buttons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
-                buttons.forEach((button) => {
-                    button.classList.remove('active');
-                });
-
-                // اضافه کردن کلاس active به دکمه فعلی
-                if (swiper.isEnd) {
-                    document.querySelector('.swiper-button-next').classList.add('active');
-                } else if (swiper.isBeginning) {
-                    document.querySelector('.swiper-button-prev').classList.add('active');
-                }
+            // اضافه کردن انیمیشن برای اسلاید فعلی
+            const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
+            if (textElement) {
+                textElement.classList.add('animate');
             }
-        </script>
+        },
+        autoplayTimeLeft: function (swiper, time, progress) {
+            // بروز رسانی محتوای تایمر و دایره پیشرفت
+            progressCircle.style.setProperty('--progress', 1 - progress);
+            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+
+            // چک کردن اگر آخرین اسلاید باشد و زمان تایمر به پایان رسیده باشد
+            if (swiper.isEnd && time === 0) {
+                swiper.autoplay.stop(); // توقف اسلایدر
+                document.getElementById("endModal").style.display = "flex"; // نمایش مدال
+            }
+        }
+    }
+});
+
+// کلیک روی دکمه "باز پخش"
+document.getElementById("replayButton").addEventListener("click", function () {
+    swiper.slideTo(0); // بازگشت به اسلاید اول
+    swiper.autoplay.start(); // شروع دوباره اسلایدر
+    document.getElementById("endModal").style.display = "none"; // بستن مدال
+});
+
+   </script>
 
 
 
