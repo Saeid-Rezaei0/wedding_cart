@@ -312,7 +312,9 @@ body {
     text-align: center;
     margin-top: 0.8rem;
 }
-
+.modal-content > h2{
+    padding-bottom: 1rem;
+}
 .modal-button {
     font-family: 'IranNastaliq', !important;
     background-color: #007bff;
