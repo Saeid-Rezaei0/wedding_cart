@@ -750,7 +750,6 @@ img {
     background-size: cover;
     background-color: #FFFF !important;
 }
-
 .bottom__left_firsr {
     position: absolute;
     width: 33.5%;
@@ -760,7 +759,7 @@ img {
     left: 0;
     object-fit: cover;
     opacity: 0;
-    animation: moveUpFirst 2s ease-in-out 0s forwards, smallBounceLeftRight 2s ease-in-out 2s infinite;
+    animation: moveUpFirst 2s ease-in-out 0s forwards, rotateLeftRight 4s ease-in-out 2s infinite;
 }
 
 .bottom__left_secend {
@@ -772,7 +771,7 @@ img {
     object-fit: cover;
     left: 33.5%; /* دقیقاً وسط صفحه قرار گرفتن */
     opacity: 0;
-    animation: moveUpSecond 2s ease-in-out 2s forwards, smallBounceRightLeft 2s ease-in-out 4s infinite;
+    animation: moveUpSecond 2s ease-in-out 2s forwards, rotateUpDown 4s ease-in-out 4s infinite;
 }
 
 .bottom__left_therd {
@@ -783,7 +782,7 @@ img {
     bottom: 0;
     right: 0;
     opacity: 0;
-    animation: moveUpThird 2s ease-in-out 4s forwards, smallBounceLeftRightReverse 2s ease-in-out 6s infinite;
+    animation: moveUpThird 2s ease-in-out 4s forwards, rotateRightLeft 4s ease-in-out 6s infinite;
 }
 
 /* انیمیشن بالا آمدن برای تصویر اول */
@@ -822,48 +821,44 @@ img {
     }
 }
 
-/* انیمیشن حرکت چپ و راست برای تصویر اول */
-@keyframes smallBounceLeftRight {
+/* انیمیشن چرخش برای تصویر اول (چرخش به چپ و راست) */
+@keyframes rotateLeftRight {
     0% {
-        transform: translateX(0);
+        transform: rotate(0deg);
     }
     50% {
-        transform: translateX(10px); /* کمی به راست حرکت کند */
+        transform: rotate(-4deg); /* چرخش به چپ */
     }
     100% {
-        transform: translateX(0);
+        transform: rotate(0deg);
     }
 }
 
-/* انیمیشن حرکت راست و چپ برای تصویر دوم (برعکس تصویر اول) */
-@keyframes smallBounceRightLeft {
+/* انیمیشن چرخش برای تصویر دوم (چرخش بالا و پایین) */
+@keyframes rotateUpDown {
     0% {
-        transform: translateX(0);
+        transform: rotate(0deg);
     }
     50% {
-        transform: translateX(-10px); /* کمی به چپ حرکت کند */
+        transform: rotate(-4deg); /* چرخش به سمت بالا */
     }
     100% {
-        transform: translateX(0);
+        transform: rotate(0deg);
     }
 }
 
-/* انیمیشن حرکت چپ و راست برای تصویر سوم (متقارن با تصویر دوم) */
-@keyframes smallBounceLeftRightReverse {
+/* انیمیشن چرخش برای تصویر سوم (چرخش به راست و چپ) */
+@keyframes rotateRightLeft {
     0% {
-        transform: translateX(0);
+        transform: rotate(0deg);
     }
     50% {
-        transform: translateX(10px); /* کمی به راست حرکت کند */
+        transform: rotate(-4deg); /* چرخش به راست */
     }
     100% {
-        transform: translateX(0);
+        transform: rotate(0deg);
     }
 }
-
-
-
-
 
 .top__left {
     top: 0;
