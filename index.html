@@ -17,7 +17,11 @@
 
 </head>
 
-
+<script>
+                var audio = document.getElementById("myAudio");  // پخش فایل صوتی
+                audio.play();
+                audio.currentTime = 0
+</script>
 <body>
 
     <audio id="myAudio" autoplay >
@@ -105,7 +109,7 @@
 
             <!-- Slide 3: به نام خدا -->
             <div class="swiper-slide myslider__slideer__3">
-                <div class="myslider3_down myslider__slideer__3">
+                <div class="myslider3_down ">
                     <div class="myslider__slideer__3_donw">
                         <p class="text_wedding">به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا
                             سادات برایمان ارزشمند است و خوشحال میشویم که این شادی را با شما به اشتراک بگذاریم. حضور گرم
@@ -150,7 +154,6 @@
         <script>
             const progressCircle = document.querySelector(".autoplay-progress svg");
             const progressContent = document.querySelector(".autoplay-progress span");
-            var audio = document.getElementById("myAudio");  // پخش فایل صوتی
             var swiper = new Swiper(".mySwiper", {
                 spaceBetween: 30,
                 centeredSlides: true,
