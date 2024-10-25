@@ -16,16 +16,8 @@
 </head>
 
 <body>
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
+    <audio id="myAudio" src="-2147483648_-210142.mp3" preload="auto" muted  ></audio> <!-- فایل صوتی با mute -->
 
-    <div class="rotate-message">
-        لطفاً گوشی را به حالت عمودی برگردانید
-        <br>
-        برای دید بهتر
-        <span class="close-icon">×</span>
-    </div>
     <div class="rotate-message">
         لطفاً گوشی را به حالت عمودی برگردانید
         <br>
@@ -132,11 +124,10 @@
         <script>
             const progressCircle = document.querySelector(".autoplay-progress svg");
             const progressContent = document.querySelector(".autoplay-progress span");
-           // نمایش لودر تا زمانی که صفحه کامل لود شود
-           window.addEventListener("load", function () {
-            document.getElementById("loader").style.display = "none";
-            document.body.classList.add("loaded");
-        });
+            var audio = document.getElementById("myAudio");
+                audio.muted = false; // پس از لود شدن صفحه، صدا را فعال کنید
+                audio.play();  // پخش فایل صوتی
+        
             var swiper = new Swiper(".mySwiper", {
                 spaceBetween: 30,
                 centeredSlides: true,
@@ -190,7 +181,7 @@
                 document.getElementById("endModal").style.display = "none"; // بستن مدال
             });
         </script>
-        
+
 
 
 
