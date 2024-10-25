@@ -17,8 +17,12 @@
 
 </head>
 
-<body>
+<body id="content" class="content">
     <audio id="myAudio" src="-2147483648_-210142.mp3" preload="auto" muted></audio> <!-- فایل صوتی با mute -->
+    <div id="loader" class="loader-container">
+        <div class="loader"></div>
+    </div>
+    
 
     <div class="rotate-message">
         لطفاً گوشی را به حالت عمودی برگردانید
@@ -143,7 +147,13 @@
             var audio = document.getElementById("myAudio");
             audio.muted = false; // پس از لود شدن صفحه، صدا را فعال کنید
             audio.play();  // پخش فایل صوتی
-
+            window.addEventListener('load', function() {
+        // مخفی کردن لودر
+        document.getElementById('loader').style.display = 'none';
+        
+        // نمایش محتوای اصلی
+        document.getElementById('content').style.display = 'block';
+    });
             var swiper = new Swiper(".mySwiper", {
                 spaceBetween: 30,
                 centeredSlides: true,

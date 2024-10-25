@@ -20,6 +20,40 @@
 }
 /* loader */
 
+/* استایل لودر */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* طراحی خود لودر (چرخش دایره‌ای) */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+/* انیمیشن چرخش */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* وقتی محتوا بارگذاری شود این استایل مخفی می‌شود */
+.content {
+    display: none;
+}
 
 body {
     height: 100vh;
@@ -656,7 +690,7 @@ img {
     font-size: 1.3rem;
     vertical-align: middle;
     color: #34495e;
-    /* margin-top: 3rem !important; */
+    margin-top: -3rem !important;
     animation-fill-mode: forwards;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
