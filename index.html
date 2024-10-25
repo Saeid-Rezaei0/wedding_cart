@@ -18,12 +18,9 @@
 </head>
 
 
-<body id="content" class="content">
-    <div>
-        <div class="loader"></div>
-        
-    </div>
-    <audio id="myAudio" autoplay loop>
+<body>
+
+    <audio id="myAudio">
         <source src="path/to/your/song.mp3" type="audio/mpeg">
         متن جایگزین برای مرورگرهای قدیمی
     </audio>
@@ -40,6 +37,7 @@
         <div class="swiper-wrapper">
             <!-- Slide 1: دعوتنامه -->
             <div class="swiper-slide">
+                <!-- bride.jpg -->
                 <div class="container">
                     <div class="bg_first">
                         <div class="card">
@@ -101,6 +99,9 @@
                     </div>
                 </div>
             </div>
+            <div class="swiper-slide ">
+               <div class="bg_img"></div>
+            </div>
 
             <!-- Slide 3: به نام خدا -->
             <div class="swiper-slide myslider__slideer__3">
@@ -150,13 +151,11 @@
             const progressCircle = document.querySelector(".autoplay-progress svg");
             const progressContent = document.querySelector(".autoplay-progress span");
             var audio = document.getElementById("myAudio");  // پخش فایل صوتی
-            window.addEventListener('load', function () {
-                // مخفی کردن لودر
-                document.getElementById('loader').style.display = 'none'
-                audio.play(); // پخش فایل صوتی در حالت بی‌صدا
-                // نمایش محتوای اصلی
-                document.getElementById('content').style.display = 'block';
-            });
+            // window.addEventListener('load', function () {
+            //     // مخفی کردن لودر
+            //     document.getElementById('loader').style.display = 'none'              // نمایش محتوای اصلی
+            //     document.getElementById('content').style.display = 'block';
+            // });
             var swiper = new Swiper(".mySwiper", {
                 spaceBetween: 30,
                 centeredSlides: true,
