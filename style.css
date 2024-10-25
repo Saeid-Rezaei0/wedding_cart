@@ -250,8 +250,20 @@ body {
     animation: subtleMove 10s ease-in-out infinite;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
+/* .bg_first{
+    background-image: url("image/IMG_20241021_142951\ \(1\).jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding-right: 0.8rem;
+    animation: subtleMove 10s ease-in-out infinite;
+} */
+ /* اسلایدر اول */
+ 
 .imgbide{
-    background-image: url("image/bride_and_grom\).jpg");
+    /* background-image: url("image/bride_and_grom\).jpg"); */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -468,10 +480,7 @@ body {
     font-size: 2rem;
 }
 
-.invitation {
-    font-family: 'Shabnam', sans-serif;
-    margin-top: -6rem !important;
-}
+
 
 /* تنظیمات برای تصویرهای پس‌زمینه */
 img {
@@ -500,26 +509,69 @@ img {
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
 .title {
     font-family: 'IranNastaliq';
     font-size: 2.4rem;
     color: #e74c3c;
-    animation: fadeIn 3s ease-out;
-    opacity: 0;
-    animation-fill-mode: forwards;
+    animation: fadeIn 3s ease-out forwards;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.title.animate {
+    animation: firstsider 2.5s forwards ease-in-out;
 }
 
 .span_top,
 .span_top_down {
     font-family: 'Shekasteh' !important;
     font-size: 1.3rem;
-    /* margin: 0.5rem 0; */
-    animation: fadeIn 3s ease-out 2s;
-    opacity: 0;
-    animation-fill-mode: forwards;
+ animation: fadeIn 3s ease-out forwards;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
 
+
+.span_top.animate {
+    animation: firstsider 2.5s forwards ease-in-out;
+    animation-delay: 1s; /* نمایش یک ثانیه بعد از .title */
+}
+
+.span_top_down.animate {
+    animation: firstsider 2.5s forwards ease-in-out;
+    animation-delay: 2s; /* نمایش یک ثانیه بعد از .span_top */
+}
+
+
+
+/* Add transitions or animations for elements smoothly fading in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Optional: Adding a slight vertical slide effect */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes firstsider {
+    0% {
+        opacity: 0;
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+
+/* .title.animate{
+    
+}
+.initials.animate{
+
+} */
 .names-container {
     text-align: center;
     padding: 60px;
@@ -604,11 +656,44 @@ img {
     font-size: 1.3rem;
     vertical-align: middle;
     color: #34495e;
-    margin-top: 5rem !important;
+    margin-top: 3rem !important;
     animation-fill-mode: forwards;
-    /* transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out; */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+.inventtext.animate {
+    animation: firstsider 2.5s forwards ease-in-out;
+    /* انیمیشن حرکت با زمان بیشتر برای تاثیرگذاری بهتر */
 }
 
+@keyframes firstsider {
+    0% {
+        opacity: 0;
+        /* شروع با شفافیت صفر */
+        transform: translateY(-120px);
+        /* شروع از بالاتر (120 پیکسل بالای صفحه) */
+        filter: blur(10px);
+        /* شروع با تاری */
+    }
+
+    60% {
+        opacity: 1;
+        /* شفافیت کامل در 60% انیمیشن */
+        transform: translateY(0);
+        /* رسیدن به موقعیت اصلی */
+        filter: blur(0);
+        /* حذف کامل تاری */
+    }
+
+    80% {
+        transform: translateY(-15px);
+        /* حرکت جزئی به بالا برای ایجاد حالت پرش */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* بازگشت به موقعیت نهایی */
+    }
+}
 
 
 .bride_and_grom{
@@ -665,6 +750,120 @@ img {
     background-size: cover;
     background-color: #FFFF !important;
 }
+
+.bottom__left_firsr {
+    position: absolute;
+    width: 33.5%;
+    height: 50vh;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    animation: moveUpFirst 2s ease-in-out 0s forwards, smallBounceLeftRight 2s ease-in-out 2s infinite;
+}
+
+.bottom__left_secend {
+    position: absolute;
+    width: 33.5%;
+    height: 50vh;
+    background-size: cover;
+    bottom: -1rem;
+    object-fit: cover;
+    left: 33.5%; /* دقیقاً وسط صفحه قرار گرفتن */
+    opacity: 0;
+    animation: moveUpSecond 2s ease-in-out 2s forwards, smallBounceRightLeft 2s ease-in-out 4s infinite;
+}
+
+.bottom__left_therd {
+    position: absolute;
+    width: 33.5%;
+    height: 50vh;
+    background-size: cover;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    animation: moveUpThird 2s ease-in-out 4s forwards, smallBounceLeftRightReverse 2s ease-in-out 6s infinite;
+}
+
+/* انیمیشن بالا آمدن برای تصویر اول */
+@keyframes moveUpFirst {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+/* انیمیشن بالا آمدن برای تصویر دوم */
+@keyframes moveUpSecond {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+/* انیمیشن بالا آمدن برای تصویر سوم */
+@keyframes moveUpThird {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+/* انیمیشن حرکت چپ و راست برای تصویر اول */
+@keyframes smallBounceLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px); /* کمی به راست حرکت کند */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* انیمیشن حرکت راست و چپ برای تصویر دوم (برعکس تصویر اول) */
+@keyframes smallBounceRightLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px); /* کمی به چپ حرکت کند */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* انیمیشن حرکت چپ و راست برای تصویر سوم (متقارن با تصویر دوم) */
+@keyframes smallBounceLeftRightReverse {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px); /* کمی به راست حرکت کند */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+
 
 .top__left {
     top: 0;
