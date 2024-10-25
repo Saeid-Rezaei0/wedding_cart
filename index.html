@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
 <body>
-    <audio id="myAudio" src="-2147483648_-210142.mp3" preload="auto" muted  ></audio> <!-- فایل صوتی با mute -->
+    <audio id="myAudio" src="-2147483648_-210142.mp3" preload="auto" muted></audio> <!-- فایل صوتی با mute -->
 
     <div class="rotate-message">
         لطفاً گوشی را به حالت عمودی برگردانید
@@ -39,6 +40,20 @@
                     <img src="image/bottom__right.jpg" class="bottom__right" alt="Background Image">
 
                     <div class="invitation">
+                        <h1 class="inventtext animate__animated animate__backInDown">«شما دعوت شدید به جشن عروسی»</h1>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="container">
+                    <img src="image/top__left.jpg" class="top__left" alt="Background Image">
+                    <img src="image/top__right.jpg" class="top__right" alt="Background Image">
+                    <img src="image/bottom__left.jpg" class="bottom__left" alt="Background Image">
+                    <img src="image/bottom__right.jpg" class="bottom__right" alt="Background Image">
+
+                    <div class="invitation">
                         <span class="title">بنام حضرت عشق</span>
                         <div class="span_top">به سنت عشق گرد هم آییم</div>
                         <div class="span_top_down">آنجا که دوست داشتن تنها کلام زندگی است</div>
@@ -53,7 +68,10 @@
                     </div>
                 </div>
             </div>
+            <div class="swiper-slide ">
+                <div class="imgbide"></div>
 
+            </div>
             <!-- Slide 2: به نام خدا -->
             <div class="swiper-slide ">
                 <div class="myslider2">
@@ -79,7 +97,6 @@
             <div class="swiper-slide myslider__slideer__3">
                 <div class="myslider3_down myslider__slideer__3">
                     <div class="myslider__slideer__3_donw">
-
                         <p class="text_wedding">به مناسبت مراسم عقد و عروسی پیوند آقا میرزا محمد علی و سیده خانم زهرا
                             سادات برایمان ارزشمند است و خوشحال میشویم که این شادی را با شما به اشتراک بگذاریم. حضور گرم
                             و صمیمی شما در این جشن موجب شادی و افتخار ما خواهد بود</p>
@@ -89,8 +106,7 @@
             <div class="swiper-slide ">
                 <div class="myslider__4 ">
                     <p class="location">
-                        آدرس :اصفهان, کوی امام جعفر صادق <br>, باغ عمارت قصر سفید
-
+                        آدرس :اصفهان, کوی امام جعفر صادق , باغ عمارت قصر سفید
                     </p>
                 </div>
             </div>
@@ -125,8 +141,8 @@
             const progressCircle = document.querySelector(".autoplay-progress svg");
             const progressContent = document.querySelector(".autoplay-progress span");
             var audio = document.getElementById("myAudio");
-                audio.muted = false; // پس از لود شدن صفحه، صدا را فعال کنید
-                audio.play();  // پخش فایل صوتی
+            audio.muted = false; // پس از لود شدن صفحه، صدا را فعال کنید
+            audio.play();  // پخش فایل صوتی
         
             var swiper = new Swiper(".mySwiper", {
                 spaceBetween: 30,
@@ -151,11 +167,13 @@
                         // حذف انیمیشن از اسلایدهای دیگر
                         document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
                         document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
+                        document.querySelectorAll(".inventtext").forEach(el => el.classList.remove("animate"));
         
                         // اضافه کردن انیمیشن برای اسلاید فعلی
-                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay");
+                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay, .inventtext");
                         if (textElement) {
                             textElement.classList.add('animate');
+                            
                         }
                     },
                     autoplayTimeLeft: function (swiper, time, progress) {
@@ -166,6 +184,8 @@
                         // شرط آخرین اسلاید و پایان تایمر
                         if (time <= 100 && swiper.isEnd) {
                             swiper.autoplay.stop(); // توقف اسلایدر
+                            audio.pause(); // توقف آهنگ
+                            audio.currentTime = 0; // بازنشانی پخش آهنگ
                             document.getElementById("endModal").style.display = "flex"; // نمایش مدال
         
                             return; // متوقف کردن اجرای کد در اینجا
@@ -177,10 +197,12 @@
             // کلیک روی دکمه "باز پخش"
             document.getElementById("replayButton").addEventListener("click", function () {
                 swiper.slideTo(0); // بازگشت به اسلاید اول
+                audio.play(); // دوباره پخش کردن فایل صوتی
                 swiper.autoplay.start(); // شروع دوباره اسلایدر
                 document.getElementById("endModal").style.display = "none"; // بستن مدال
             });
         </script>
+        
 
 
 

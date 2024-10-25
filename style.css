@@ -250,6 +250,16 @@ body {
     animation: subtleMove 10s ease-in-out infinite;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
+.imgbide{
+    background-image: url("image/bride_and_grom\).jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding-right: 0.8rem;
+    /* animation: subtleMove 1s ease-in-out infinite; */
+}
 
 .myslider__4 {
     background-image: url("image/IMG_20241021_142951 (1).jpg");
@@ -262,8 +272,7 @@ body {
     animation: subtleMove 10s ease-in-out infinite;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
-
-.location {
+.location { 
     display: flex;
     height: 98vh;
     justify-content: center;
@@ -271,10 +280,13 @@ body {
     font-family: 'IranNastaliq';
     text-align: center;
     font-size: 2.2rem;
-    padding-left: 1rem;
-    animation: scaleAnimation 2s infinite;
-    /* اضافه کردن انیمیشن */
+    padding: 0 2rem; /* پدینگ برای مرزبندی متن و کادر */
+    max-width: 20rem; /* عرض متناسب با کادر */
+    white-space: normal; /* اجازه می‌دهد متن در صورت نیاز به خط بعدی برود */
+    word-wrap: break-word; /* اگر متن طولانی باشد، اجازه می‌دهد متن به خط بعدی برود */
+    margin: auto;
 }
+
 
 @keyframes scaleAnimation {
     0% {
@@ -309,10 +321,16 @@ body {
 
 .modal-content {
     background-color: #323232;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    margin-top: 0.8rem;
+    /* margin-top: 0.8rem; */
 }
 .modal-content > h2{
     padding-bottom: 1rem;
@@ -403,7 +421,7 @@ body {
 }
 
 .text_wedding.animate {
-    animation: fadeInFromTop 2s forwards;
+    animation: fadeInFromTop 5s forwards;
     /* انیمیشن حرکت از بالا */
 }
 
@@ -487,7 +505,7 @@ img {
     font-family: 'IranNastaliq';
     font-size: 2.4rem;
     color: #e74c3c;
-    animation: fadeIn 2s ease-out;
+    animation: fadeIn 3s ease-out;
     opacity: 0;
     animation-fill-mode: forwards;
 }
@@ -580,6 +598,25 @@ img {
     animation-fill-mode: forwards;
 }
 
+
+.inventtext {
+    font-family: 'BTraffiBold_0' !important;
+    font-size: 1.3rem;
+    vertical-align: middle;
+    color: #34495e;
+    margin-top: 5rem !important;
+    animation-fill-mode: forwards;
+    /* transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out; */
+}
+
+
+
+.bride_and_grom{
+    width: 100%;
+    height: 100vh;
+}
+
+
 .month {
     font-size: 1rem;
     color: #34495e;
@@ -626,6 +663,7 @@ img {
     width: 50%;
     height: 50vh;
     background-size: cover;
+    background-color: #FFFF !important;
 }
 
 .top__left {
