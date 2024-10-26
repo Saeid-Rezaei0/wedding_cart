@@ -365,6 +365,7 @@ body {
     align-items: center;
 }
 
+
 .modal-content {
     background-color: #323232;
     height: 100vh;
@@ -806,23 +807,25 @@ img {
 
 .bottom__left_secend {
     position: absolute;
-    width: 33.5%;
+    width: 30%;
     height: 50vh;
     background-size: cover;
     bottom: -1rem;
     object-fit: cover;
-    left: 33.5%; /* دقیقاً وسط صفحه قرار گرفتن */
+    left: 31.5%; /* دقیقاً وسط صفحه قرار گرفتن */
     opacity: 0;
     animation: moveUpSecond 2s ease-in-out 2s forwards, rotateUpDown 4s ease-in-out 4s infinite;
 }
 
 .bottom__left_therd {
     position: absolute;
-    width: 33.5%;
+    width:80%;
     height: 50vh;
+    /* background-color: red; */
     background-size: cover;
     bottom: 0;
-    right: 0;
+    right: -2rem;
+    padding-left: 6rem;
     opacity: 0;
     animation: moveUpThird 2s ease-in-out 4s forwards, rotateRightLeft 4s ease-in-out 6s infinite;
 }
