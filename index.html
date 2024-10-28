@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
 </head>
 
 <script>
@@ -25,8 +24,8 @@
 
 <body>
 
-    <audio id="myAudio" autoplay >
-        <source src="music.mp3"  type="audio/mpeg">
+    <audio id="myAudio" autoplay>
+        <source src="mسusic.mp3" type="audio/mpeg">
         متن جایگزین برای مرورگرهای قدیمی
     </audio>
 
@@ -42,7 +41,6 @@
         <div class="swiper-wrapper">
             <!-- Slide 1: دعوتنامه -->
             <div class="swiper-slide">
-                <!-- bride.jpg -->
                 <div class="container">
                     <div class="bg_first">
                         <div class="card">
@@ -56,9 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="invitation bg_first">
-                       <h1 class="inventtext" >«شما دعوت شدید به جشن عروسی»</h1>
-                    </div> -->
+
                 </div>
             </div>
             <!-- secent -->
@@ -68,16 +64,17 @@
                     <img src="image/top__right.jpg" class="top__right" alt="Background Image">
                     <img src="image/bottom__left.jpg" class="bottom__left" alt="Background Image">
                     <img src="image/bottom__right.jpg" class="bottom__right" alt="Background Image">
-
                     <div class="invitation">
                         <span class="title">بنام حضرت عشق</span>
-                        <div class="span_top">به سنت عشق گرد هم آییم</div>
-                        <div class="span_top_down">آنجا که دوست داشتن تنها کلام زندگی است</div>
+                        <div class="span_top    ">به سنت عشق گرد هم آییم</div>
+                        <div class="span_top_down   ">آنجا که دوست داشتن تنها کلام
+                            زندگی است</div>
                         <div class="names-container">
                             <div class="initials">
-                                <span class="initialsfirst"> اقا میرزا محمد علی شیرازی</span>
+                                <span class="initialsfirst "> اقا میرزا محمد علی شیرازی</span>
                                 <br>
-                                <span class="initialssecent"> زهرا سید محمدباقر موسوی زاده قمی
+                                <span class="initialssecent   "> زهرا سید محمدباقر
+                                    موسوی زاده قمی
                                 </span>
                             </div>
                         </div>
@@ -156,23 +153,23 @@
             const progressCircle = document.querySelector(".autoplay-progress svg");
             const progressContent = document.querySelector(".autoplay-progress span");
             var audio = document.getElementById("myAudio");
-
+        
             document.addEventListener('DOMContentLoaded', function () {
                 audio.muted = false;  // پس از لود شدن صفحه، صدا را فعال کنید
                 audio.play();  // پخش فایل صوتی
-
+        
                 // مخفی کردن لودر
                 document.getElementById('loader').style.display = 'none';
                 // نمایش محتوای اصلی
                 document.getElementById('content').style.display = 'block';
             });
-
+        
             var swiper = new Swiper(".mySwiper", {
                 spaceBetween: 30,
                 centeredSlides: true,
                 loop: false,
                 autoplay: {
-                    delay: 10000, // تاخیر 1 ثانیه‌ای
+                    delay: 4000, // تاخیر 4 ثانیه‌ای
                     disableOnInteraction: false
                 },
                 pagination: {
@@ -186,27 +183,50 @@
                 on: {
                     slideChange: function () {
                         const currentSlide = swiper.slides[swiper.activeIndex];
-
-                        // حذف انیمیشن از اسلایدهای دیگر
-                        document.querySelectorAll(".text_wedding").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".text-overlay").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".inventtext").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".title").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".span_top").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".span_top_down").forEach(el => el.classList.remove("animate"));
-                        document.querySelectorAll(".initials").forEach(el => el.classList.remove("animate"));
-
+        
+                        // حذف انیمیشن و کلاس active از اسلایدهای دیگر
+                        document.querySelectorAll(".text_wedding, .text-overlay, .inventtext, .title, .span_top.active, .span_top_down.active, .initials, .initialsfirst, .initialssecond").forEach(el => {
+                            el.classList.remove("animate");
+                            el.classList.remove("active"); // حذف کلاس active
+                        });
+        
                         // اضافه کردن انیمیشن برای اسلاید فعلی
-                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay, .inventtext, .title, .span_top, .span_top_down, .initials");
+                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay, .inventtext, .title, .initials");
                         if (textElement) {
                             textElement.classList.add('animate');
+                        }
+        
+                        // اضافه کردن کلاس active به span_top و span_top_down
+                        const spanTopElement = currentSlide.querySelector(".span_top");
+                        const spanTopDownElement = currentSlide.querySelector(".span_top_down");
+                        const initialsfirstElement = currentSlide.querySelector(".initialsfirst");
+                        const initialssecentElement = currentSlide.querySelector(".initialssecent");
+                        
+                        if (initialsfirstElement) {
+                            initialsfirstElement.classList.add('active');
+                        }
+                        if (initialssecentElement) {
+                            initialssecentElement.classList.add('active');
+                        }
+                        
+                        if (spanTopElement) {
+                            spanTopElement.classList.add('active');
+                        }
+                        if (spanTopDownElement) {
+                            spanTopDownElement.classList.add('active');
+                        }
+                        
+                        // اضافه کردن انیمیشن به initials
+                        const initialsElement = currentSlide.querySelector(".initials");
+                        if (initialsElement) {
+                            initialsElement.classList.add('animate');
                         }
                     },
                     autoplayTimeLeft: function (swiper, time, progress) {
                         // بروز رسانی محتوای تایمر و دایره پیشرفت
                         progressCircle.style.setProperty('--progress', 1 - progress);
                         progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-
+        
                         // شرط آخرین اسلاید و پایان تایمر
                         if (time <= 100 && swiper.isEnd) {
                             swiper.autoplay.stop(); // توقف اسلایدر
@@ -216,19 +236,19 @@
                     }
                 }
             });
-
+        
             // دکمه بازپخش
             document.getElementById("replayButton").addEventListener("click", function () {
                 document.getElementById("endModal").style.display = "none";   // بستن مدال
                 swiper.autoplay.stop();  // توقف اتوپلی فعلی
                 swiper.slideTo(0);  // بازگشت به اسلاید اول
                 swiper.autoplay.start();  // شروع دوباره اتوپلی
-                swiper.autoplay.start();  // شروع دوباره اتوپلی
                 audio.currentTime = 0;  // بازگشت به شروع فایل صوتی
                 audio.play();  // پخش دوباره آهنگ
             });
-
         </script>
+        
+        
         <script>
             let closebtn = document.querySelector(".close-icon");
             closebtn.addEventListener("click", function () {
@@ -239,3 +259,4 @@
 </body>
 
 </html>
+<!-- animate__rotateInDownRight -->

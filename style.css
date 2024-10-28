@@ -18,6 +18,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /* loader */
 
 /* استایل لودر */
@@ -46,8 +47,13 @@
 
 /* انیمیشن چرخش */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* وقتی محتوا بارگذاری شود این استایل مخفی می‌شود */
@@ -284,6 +290,7 @@ body {
     animation: subtleMove 10s ease-in-out infinite;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
+
 /* .bg_first{
     background-image: url("image/IMG_20241021_142951\ \(1\).jpg");
     background-size: contain;
@@ -294,9 +301,9 @@ body {
     padding-right: 0.8rem;
     animation: subtleMove 10s ease-in-out infinite;
 } */
- /* اسلایدر اول */
- 
-.imgbide{
+/* اسلایدر اول */
+
+.imgbide {
     /* background-image: url("image/bride_and_grom\).jpg"); */
     background-size: contain;
     background-position: center;
@@ -318,7 +325,8 @@ body {
     animation: subtleMove 10s ease-in-out infinite;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
-.location { 
+
+.location {
     display: flex;
     height: 98vh;
     justify-content: center;
@@ -326,10 +334,14 @@ body {
     font-family: 'IranNastaliq';
     text-align: center;
     font-size: 2.2rem;
-    padding: 0 2rem; /* پدینگ برای مرزبندی متن و کادر */
-    max-width: 20rem; /* عرض متناسب با کادر */
-    white-space: normal; /* اجازه می‌دهد متن در صورت نیاز به خط بعدی برود */
-    word-wrap: break-word; /* اگر متن طولانی باشد، اجازه می‌دهد متن به خط بعدی برود */
+    padding: 0 2rem;
+    /* پدینگ برای مرزبندی متن و کادر */
+    max-width: 20rem;
+    /* عرض متناسب با کادر */
+    white-space: normal;
+    /* اجازه می‌دهد متن در صورت نیاز به خط بعدی برود */
+    word-wrap: break-word;
+    /* اگر متن طولانی باشد، اجازه می‌دهد متن به خط بعدی برود */
     margin: auto;
 }
 
@@ -350,6 +362,7 @@ body {
         /* بازگشت به اندازه اصلی */
     }
 }
+
 /* modal end of slider */
 .modal {
     display: none;
@@ -361,7 +374,7 @@ body {
     height: 100%;
     color: #F8F8F8;
     justify-content: center;
-      font-family: 'IranNastaliq', !important;
+    font-family: 'IranNastaliq', !important;
     align-items: center;
 }
 
@@ -379,9 +392,11 @@ body {
     text-align: center;
     /* margin-top: 0.8rem; */
 }
-.modal-content > h2{
+
+.modal-content>h2 {
     padding-bottom: 1rem;
 }
+
 .modal-button {
     background-color: #007bff;
     color: white;
@@ -391,7 +406,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-.bg_img{
+
+.bg_img {
     background-size: cover;
     background-image: url("image/bride.jpg");
     background-repeat: no-repeat;
@@ -552,6 +568,7 @@ img {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
 .title {
     font-family: 'IranNastaliq';
     font-size: 2.4rem;
@@ -561,39 +578,65 @@ img {
 }
 
 .title.animate {
-    animation: firstsider 2.5s forwards ease-in-out;
+    animation: firstsider 1s forwards ease-in-out;
 }
 
-.span_top,
+/* .title.animate{
+    
+}
+.initials.animate{
+
+} */
+ .span_top,
 .span_top_down {
     font-family: 'Shekasteh' !important;
     font-size: 1.3rem;
- animation: fadeIn 3s ease-out forwards;
+    animation: fadeIn 3s ease-out forwards;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    opacity: 0; /* به طور پیش‌فرض مخفی است */
 }
 
-
-.span_top.animate {
-    animation: firstsider 2.5s forwards ease-in-out;
-    animation-delay: 1s; /* نمایش یک ثانیه بعد از .title */
+.span_top.active {
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInLeft 3s forwards; /* انیمیشن ورود از چپ */
 }
 
-.span_top_down.animate {
-    animation: firstsider 2.5s forwards ease-in-out;
-    animation-delay: 2s; /* نمایش یک ثانیه بعد از .span_top */
+.span_top_down.active {
+    opacity: 1; /* وقتی active هستند نمایان می‌شوند */
+    animation: slideInRight 4s forwards; /* انیمیشن ورود از راست */
 }
-
-
 
 /* Add transitions or animations for elements smoothly fading in */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Optional: Adding a slight vertical slide effect */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%); /* حرکت از سمت چپ */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%); /* حرکت از سمت راست */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -609,12 +652,6 @@ img {
 }
 
 
-/* .title.animate{
-    
-}
-.initials.animate{
-
-} */
 .names-container {
     text-align: center;
     padding: 60px;
@@ -624,9 +661,9 @@ img {
     position: relative;
     margin-top: 5rem;
     /* border: 3px solid rgba(255, 255, 255, 0.7); */
-    animation: fadeIn 4s ease-out 4s;
-    opacity: 0;
-    animation-fill-mode: forwards;
+    /* animation: fadeIn 4s ease-out 4s; */
+    opacity: 1;
+    /* animation-fill-mode: forwards; */
 }
 
 .names {
@@ -666,9 +703,41 @@ img {
 
 .initialsfirst {
     margin-left: 7rem;
+    animation: slideFromTop 1s ease forwards !important;
 
 }
+@keyframes slideFromTop {
+    0% {
+        opacity: 0;
 
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* موقعیت نهایی */
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px); /* حرکت کمی از پایین */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* موقعیت نهایی */
+    }
+}
+
+/* .initialsfirst.active {
+    animation: slideFromTop 1s ease forwards;
+} */
+
+.initialssecent.active {
+    animation: slideFromBottom 1s ease forwards;
+}
+
+  
 .decorative-flower {
     position: absolute;
     bottom: -30px;
@@ -703,8 +772,10 @@ img {
     animation-fill-mode: forwards;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
+
 .inventtext.animate {
     animation: firstsider 2.5s forwards ease-in-out;
+
     /* انیمیشن حرکت با زمان بیشتر برای تاثیرگذاری بهتر */
 }
 
@@ -739,7 +810,7 @@ img {
 }
 
 
-.bride_and_grom{
+.bride_and_grom {
     width: 100%;
     height: 100vh;
 }
@@ -793,6 +864,7 @@ img {
     background-size: cover;
     background-color: #FFFF !important;
 }
+
 .bottom__left_firsr {
     position: absolute;
     width: 33.5%;
@@ -812,14 +884,15 @@ img {
     background-size: cover;
     bottom: -1rem;
     object-fit: cover;
-    left: 31.5%; /* دقیقاً وسط صفحه قرار گرفتن */
+    left: 31.5%;
+    /* دقیقاً وسط صفحه قرار گرفتن */
     opacity: 0;
     animation: moveUpSecond 2s ease-in-out 2s forwards, rotateUpDown 4s ease-in-out 4s infinite;
 }
 
 .bottom__left_therd {
     position: absolute;
-    width:80%;
+    width: 80%;
     height: 50vh;
     /* background-color: red; */
     background-size: cover;
@@ -836,6 +909,7 @@ img {
         bottom: -100px;
         opacity: 0;
     }
+
     100% {
         bottom: 0px;
         opacity: 1;
@@ -848,6 +922,7 @@ img {
         bottom: -100px;
         opacity: 0;
     }
+
     100% {
         bottom: 0px;
         opacity: 1;
@@ -860,6 +935,7 @@ img {
         bottom: -100px;
         opacity: 0;
     }
+
     100% {
         bottom: 0px;
         opacity: 1;
@@ -871,9 +947,12 @@ img {
     0% {
         transform: rotate(0deg);
     }
+
     50% {
-        transform: rotate(-4deg); /* چرخش به چپ */
+        transform: rotate(-4deg);
+        /* چرخش به چپ */
     }
+
     100% {
         transform: rotate(0deg);
     }
@@ -884,9 +963,12 @@ img {
     0% {
         transform: rotate(0deg);
     }
+
     50% {
-        transform: rotate(-4deg); /* چرخش به سمت بالا */
+        transform: rotate(-4deg);
+        /* چرخش به سمت بالا */
     }
+
     100% {
         transform: rotate(0deg);
     }
@@ -897,9 +979,12 @@ img {
     0% {
         transform: rotate(0deg);
     }
+
     50% {
-        transform: rotate(-4deg); /* چرخش به راست */
+        transform: rotate(-4deg);
+        /* چرخش به راست */
     }
+
     100% {
         transform: rotate(0deg);
     }
