@@ -69,15 +69,14 @@
                         <div class="span_top    ">به سنت عشق گرد هم آییم</div>
                         <div class="span_top_down   ">آنجا که دوست داشتن تنها کلام
                             زندگی است</div>
-                        <div class="names-container">
-                            <div class="initials">
-                                <span class="initialsfirst "> اقا میرزا محمد علی شیرازی</span>
-                                <br>
-                                <span class="initialssecent   "> زهرا سید محمدباقر
-                                    موسوی زاده قمی
-                                </span>
+                            <div class="names-container">
+                                <div class="initials">
+                                    <span class="initialsfirst "> آقا میرزا محمد علی شیرازی</span>
+                                    <br>
+                                    <span class="initialssecent"> زهرا سید محمدباقر موسوی زاده قمی</span>
+                                </div>
                             </div>
-                        </div>
+                            
                     </div>
                 </div>
             </div>
@@ -169,7 +168,7 @@
                 centeredSlides: true,
                 loop: false,
                 autoplay: {
-                    delay: 4000, // تاخیر 4 ثانیه‌ای
+                    delay: 10000, // تاخیر 4 ثانیه‌ای
                     disableOnInteraction: false
                 },
                 pagination: {
@@ -181,11 +180,19 @@
                     prevEl: ".swiper-button-prev"
                 },
                 on: {
+                    init: function () {
+                        const initialSlide = this.slides[this.activeIndex];
+                        // فعال‌سازی انیمیشن برای اولین اسلاید
+                        const initialsfirstElement = initialSlide.querySelector(".initialsfirst");
+                        const initialssecentElement = initialSlide.querySelector(".initialssecent");
+                        if (initialsfirstElement) initialsfirstElement.classList.add('animate');
+                        if (initialssecentElement) initialssecentElement.classList.add('animate');
+                    },
                     slideChange: function () {
                         const currentSlide = swiper.slides[swiper.activeIndex];
         
                         // حذف انیمیشن و کلاس active از اسلایدهای دیگر
-                        document.querySelectorAll(".text_wedding, .text-overlay, .inventtext, .title, .span_top.active, .span_top_down.active, .initials, .initialsfirst, .initialssecond").forEach(el => {
+                        document.querySelectorAll(".text_wedding, .text-overlay, .inventtext, .title, .span_top.active, .span_top_down.active, .initials, .initialsfirst, .initialssecent").forEach(el => {
                             el.classList.remove("animate");
                             el.classList.remove("active"); // حذف کلاس active
                         });
@@ -196,31 +203,23 @@
                             textElement.classList.add('animate');
                         }
         
-                        // اضافه کردن کلاس active به span_top و span_top_down
-                        const spanTopElement = currentSlide.querySelector(".span_top");
-                        const spanTopDownElement = currentSlide.querySelector(".span_top_down");
-                        const initialsfirstElement = currentSlide.querySelector(".initialsfirst");
-                        const initialssecentElement = currentSlide.querySelector(".initialssecent");
-                        
-                        if (initialsfirstElement) {
-                            initialsfirstElement.classList.add('active');
-                        }
-                        if (initialssecentElement) {
-                            initialssecentElement.classList.add('active');
-                        }
-                        
-                        if (spanTopElement) {
-                            spanTopElement.classList.add('active');
-                        }
-                        if (spanTopDownElement) {
-                            spanTopDownElement.classList.add('active');
-                        }
-                        
-                        // اضافه کردن انیمیشن به initials
-                        const initialsElement = currentSlide.querySelector(".initials");
-                        if (initialsElement) {
-                            initialsElement.classList.add('animate');
-                        }
+                        // انتخاب عناصر برای اضافه کردن کلاس‌ها
+                        const elementsToAnimate = [
+                            currentSlide.querySelector(".span_top"),
+                            currentSlide.querySelector(".span_top_down"),
+                            currentSlide.querySelector(".initialsfirst"),
+                            currentSlide.querySelector(".initialssecent")
+                        ];
+        
+                        // اضافه کردن کلاس‌های مناسب به عناصر
+                        elementsToAnimate.forEach(el => {
+                            if (el) {
+                                el.classList.add('active'); // افزودن کلاس active
+                                if (el.classList.contains('initialsfirst') || el.classList.contains('initialssecent')) {
+                                    el.classList.add('animate'); // افزودن انیمیشن به initials
+                                }
+                            }
+                        });
                     },
                     autoplayTimeLeft: function (swiper, time, progress) {
                         // بروز رسانی محتوای تایمر و دایره پیشرفت
@@ -247,6 +246,8 @@
                 audio.play();  // پخش دوباره آهنگ
             });
         </script>
+        
+        
         
         
         <script>

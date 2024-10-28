@@ -561,7 +561,7 @@ img {
     width: 90%;
     max-width: 500px;
     padding: 2rem;
-    margin-top: -6rem;
+    margin-top: -8rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -591,19 +591,19 @@ img {
 .span_top_down {
     font-family: 'Shekasteh' !important;
     font-size: 1.3rem;
-    animation: fadeIn 3s ease-out forwards;
+    animation: fadeIn 5s ease-out forwards;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
     opacity: 0; /* به طور پیش‌فرض مخفی است */
 }
 
 .span_top.active {
     opacity: 1; /* وقتی active هستند نمایان می‌شوند */
-    animation: slideInLeft 3s forwards; /* انیمیشن ورود از چپ */
+    animation: slideInLeft 5s forwards; /* انیمیشن ورود از چپ */
 }
 
 .span_top_down.active {
     opacity: 1; /* وقتی active هستند نمایان می‌شوند */
-    animation: slideInRight 4s forwards; /* انیمیشن ورود از راست */
+    animation: slideInRight 7s forwards; /* انیمیشن ورود از راست */
 }
 
 /* Add transitions or animations for elements smoothly fading in */
@@ -702,18 +702,35 @@ img {
 }
 
 .initialsfirst {
-    margin-left: 7rem;
-    animation: slideFromTop 1s ease forwards !important;
-
+    margin-left: 8rem;
 }
+
+
 @keyframes slideFromTop {
     0% {
         opacity: 0;
-
+        margin-left: -880rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    } 2% {
+        opacity: 0;
+        margin-left: -800rem;
         transform: translateY(-150px); /* حرکت کمی از بالا */
     }
+    3% {
+        opacity: 0;
+        margin-left: -790rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    }
+    4% {
+        opacity: 0;
+        margin-left: -760rem;
+        transform: translateY(-150px); /* حرکت کمی از بالا */
+    }
+
     100% {
         opacity: 1;
+        margin-left: 8rem;
+        transition: all 0.5s ease-in-out;
         transform: translateY(0); /* موقعیت نهایی */
     }
 }
@@ -721,20 +738,22 @@ img {
 @keyframes slideFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(-80px); /* حرکت کمی از پایین */
+        margin-right: -880rem ;
+        transform: translateY(-150px); /* حرکت کمی از پایین */
     }
     100% {
         opacity: 1;
+        margin-right: 0rem ;
         transform: translateY(0); /* موقعیت نهایی */
     }
 }
 
-/* .initialsfirst.active {
-    animation: slideFromTop 1s ease forwards;
-} */
+.initialsfirst.animate {
+    animation: slideFromTop 4.5s ease forwards;
+}
 
-.initialssecent.active {
-    animation: slideFromBottom 1s ease forwards;
+.initialssecent.animate {
+    animation: slideFromBottom 6.5s ease forwards;
 }
 
   
