@@ -421,8 +421,9 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 100vh;
+    height: 98vh;
     position: relative;
+    background-color: white;
     z-index: 1; /* برای قرار گرفتن تصویر بالای ابر */
 }
 .bg_img.animate{
@@ -458,6 +459,10 @@ body {
     50% {
         opacity: 0.8;
         filter: brightness(0.7) contrast(1.05) saturate(1.1) blur(2px); /* کاهش فیلتر */
+    }
+    80%{
+        transform: scale(1.2); /* رسیدن به اندازه اصلی */
+        opacity: 1; /* شفافیت کامل */
     }
     100% {
         transform: scale(1); /* رسیدن به اندازه اصلی */
