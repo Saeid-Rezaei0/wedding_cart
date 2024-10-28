@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دعوت نامه عروسی</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Swiper CSS (Local) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs..com/ajax/libs/fcloudflareont-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMFOMuV5D5oCQ5D2W5C2A1s3o2s72bW9p4uLJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
-
 <script>
     var audio = document.getElementById("myAudio");  // پخش فایل صوتی
     audio.play();
@@ -58,8 +56,10 @@
                 </div>
             </div>
             <!-- secent -->
-            <div class="swiper-slide">
-                <div class="container">
+            <div class="swiper-slide  ">
+                <div class="container ">
+                
+
                     <img src="image/top__left.jpg" class="top__left" alt="Background Image">
                     <img src="image/top__right.jpg" class="top__right" alt="Background Image">
                     <img src="image/bottom__left.jpg" class="bottom__left" alt="Background Image">
@@ -85,14 +85,14 @@
                 <div class="imgbide"></div>
             </div> -->
             <!-- Slide 2: به نام خدا -->
-            <div class="swiper-slide ">
+            <div class="swiper-slide  ">
                 <div class="myslider2">
-                    <div class="card">
-                        <div class="text-overlay">
+                    <div class="card ">
+                        <div class="text-overlay ">
                             <span class="date">تاریخ: 1404/01/28 (پنج شنبه)</span>
                             <br>
                             <div class="event-time">
-                                <span class="dinner">
+                                <span class="dinner " >
                                     19 الی 23 (به صرف شام)
                                 </span>
                             </div>
@@ -101,7 +101,8 @@
                 </div>
             </div>
             <div class="swiper-slide ">
-                <div class="bg_img"></div>
+                <div class="bg_img "></div>
+                <!-- <div class="bg_img_2"></div> -->
             </div>
 
             <!-- Slide 3: به نام خدا -->
@@ -168,7 +169,7 @@
                 centeredSlides: true,
                 loop: false,
                 autoplay: {
-                    delay: 10000, // تاخیر 4 ثانیه‌ای
+                    delay: 40000, // تاخیر 4 ثانیه‌ای
                     disableOnInteraction: false
                 },
                 pagination: {
@@ -192,13 +193,13 @@
                         const currentSlide = swiper.slides[swiper.activeIndex];
         
                         // حذف انیمیشن و کلاس active از اسلایدهای دیگر
-                        document.querySelectorAll(".text_wedding, .text-overlay, .inventtext, .title, .span_top.active, .span_top_down.active, .initials, .initialsfirst, .initialssecent").forEach(el => {
+                        document.querySelectorAll(".text_wedding, .text-overlay, .inventtext, .title, .span_top.active, .span_top_down.active, .initials, .initialsfirst, .initialssecent , .bg_img ").forEach(el => {
                             el.classList.remove("animate");
                             el.classList.remove("active"); // حذف کلاس active
                         });
         
                         // اضافه کردن انیمیشن برای اسلاید فعلی
-                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay, .inventtext, .title, .initials");
+                        const textElement = currentSlide.querySelector(".text_wedding, .text-overlay, .inventtext, .title, .initials , .bg_img ");
                         if (textElement) {
                             textElement.classList.add('animate');
                         }

@@ -232,6 +232,7 @@ body {
     font-family: 'BTraffiBold_0';
     direction: rtl;
     font-weight: bold;
+    
 }
 
 .start-time,
@@ -288,6 +289,7 @@ body {
     height: 100vh;
     padding-right: 0.8rem;
     animation: subtleMove 10s ease-in-out infinite;
+    background-color: #F9F9F9;
     /* انیمیشن با حرکت ریز و تکرارشونده */
 }
 
@@ -333,7 +335,7 @@ body {
     align-items: center;
     font-family: 'IranNastaliq';
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 2rem;
     padding: 0 2rem;
     /* پدینگ برای مرزبندی متن و کادر */
     max-width: 20rem;
@@ -407,14 +409,72 @@ body {
     cursor: pointer;
 }
 
+.container {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+}
+
 .bg_img {
+    background-image: url("image/Screenshot_2024-10-28-22-24-16-179_com.miui.videoplayer.jpg");
     background-size: cover;
-    background-image: url("image/bride.jpg");
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
     height: 100vh;
+    position: relative;
+    z-index: 1; /* برای قرار گرفتن تصویر بالای ابر */
 }
+.bg_img.animate{
+    animation: zoomFadeIn 3s ease-in-out forwards;
+}
+/* .bg_img_2{
+    background-image: url("Sflowe_btttom738.png");
+    position: absolute;
+    background-size: cover;
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
+} */
+.cloud_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 1;
+    z-index: 2; /* ابر بالای تصویر */
+    animation: cloudFadeOut 5s ease-in-out forwards; /* انیمیشن کنار رفتن ابر */
+}
+
+/* انیمیشن برای ظهور زیبا از وسط */
+@keyframes zoomFadeIn {
+    0% {
+        filter: brightness(0.9) contrast(1.1) saturate(1.2) blur(5px); /* فیلتر برای زیباتر شدن */
+        transform: scale(0.7); /* اندازه کوچک در شروع */
+        opacity: 0; /* شفافیت صفر در شروع */
+    }
+    50% {
+        opacity: 0.8;
+        filter: brightness(0.7) contrast(1.05) saturate(1.1) blur(2px); /* کاهش فیلتر */
+    }
+    100% {
+        transform: scale(1); /* رسیدن به اندازه اصلی */
+        opacity: 1; /* شفافیت کامل */
+    }
+}
+
+/* انیمیشن برای کنار رفتن ابر */
+@keyframes cloudFadeOut {
+    0% {
+        opacity: 1; /* ابر در ابتدا کاملا قابل مشاهده است */
+    }
+    100% {
+        opacity: 0; /* ابر ناپدید می‌شود */
+    }
+}
+
 
 .myslider__slideer__3 {
     background-image: url("image/move\).jpg");
@@ -698,7 +758,7 @@ img {
     width: 35rem;
     font-family: "Shekasteh" !important;
     /* color: #7f7f7f; */
-    color: #020202;
+    color: #020202d4;
 }
 
 .initialsfirst {
