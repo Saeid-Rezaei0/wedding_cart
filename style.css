@@ -97,9 +97,9 @@ body {
 }
 
 .swiper-slide {
-    animation: slideIn 1s ease forwards;
+    animation: slideIn 2.5s ease forwards;
     /* اجرای انیمیشن باز شدن برای هر اسلاید */
-    transform-origin: left;
+    transform-origin: right;
     /* باز شدن از چپ به راست */
     overflow: hidden;
 }
@@ -143,7 +143,7 @@ body {
     transform: translate(-50%, 50%);
     /* شروع حرکت از پایین */
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     background-color: rgba(255, 255, 255, 0.6);
     /* نیمه شفاف برای زمینه */
     padding: 10px;
@@ -155,7 +155,7 @@ body {
     /* شروع با شفافیت صفر */
     filter: blur(10px);
     /* شروع با حالت تار */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.7s ease-in-out, filter 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
     /* ترتیب عمودی */
@@ -167,6 +167,7 @@ body {
 .text-overlay.animate {
     animation: slideUpWithFilter 2s forwards;
     /* انیمیشن حرکت به بالا */
+    /* animation: slideFromBottom 6.5s ease forwards; */
 }
 
 .text-overlay .date {
@@ -178,12 +179,11 @@ body {
     0% {
         opacity: 0;
         /* شروع با شفافیت صفر */
-        transform: translate(50%, 0);
+        transform: translateY(-500%, 1%);
         /* شروع از سمت راست */
         filter: blur(10px);
         /* شروع با تاری */
     }
-
     100% {
         opacity: 1;
         /* رسیدن به شفافیت کامل */
@@ -345,6 +345,7 @@ body {
     word-wrap: break-word;
     /* اگر متن طولانی باشد، اجازه می‌دهد متن به خط بعدی برود */
     margin: auto;
+    animation:  scaleAnimation 2.5s ease-in-out infinite;
 }
 
 
@@ -355,7 +356,7 @@ body {
     }
 
     50% {
-        transform: scale(1.05);
+        transform: scale(1.04);
         /* بزرگ‌تر شدن */
     }
 
@@ -427,7 +428,7 @@ body {
     z-index: 1; /* برای قرار گرفتن تصویر بالای ابر */
 }
 .bg_img.animate{
-    animation: zoomFadeIn 3s ease-in-out forwards;
+    animation: zoomFadeIn 4.7s ease-in-out forwards;
 }
 /* .bg_img_2{
     background-image: url("Sflowe_btttom738.png");
@@ -452,13 +453,22 @@ body {
 /* انیمیشن برای ظهور زیبا از وسط */
 @keyframes zoomFadeIn {
     0% {
-        filter: brightness(0.9) contrast(1.1) saturate(1.2) blur(7px); /* فیلتر برای زیباتر شدن */
+        filter: brightness(1) contrast(1.1) saturate(1.2) blur(7px); /* فیلتر برای زیباتر شدن */
+        transform: scale(0.7); /* اندازه کوچک در شروع */
+        opacity: 0; /* شفافیت صفر در شروع */
+        /* transform: rotate(180deg); */
+        transform: rotate(-180deg);
+    }
+    0% {
+        filter: brightness(0.8) contrast(1.2) saturate(1.3) blur(7px); /* فیلتر برای زیباتر شدن */
         transform: scale(0.7); /* اندازه کوچک در شروع */
         opacity: 0; /* شفافیت صفر در شروع */
     }
     50% {
         opacity: 0.8;
         filter: brightness(0.7) contrast(1.05) saturate(1.1) blur(4px); /* کاهش فیلتر */
+        transform: rotate(6deg);
+        
     }
     80%{
         transform: scale(1.2); /* رسیدن به اندازه اصلی */
@@ -640,6 +650,7 @@ img {
     font-family: 'IranNastaliq';
     font-size: 2.4rem;
     color: #e74c3c;
+    
     animation: fadeIn 3s ease-out forwards;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
@@ -710,9 +721,10 @@ img {
 @keyframes firstsider {
     0% {
         opacity: 0;
-        filter: blur(5px);
+        filter: blur(5px);;
     }
     100% {
+        transform: translateY(0%);
         opacity: 1;
         filter: blur(0);
     }
@@ -776,16 +788,16 @@ img {
 @keyframes slideFromTop {
     0% {
         opacity: 0;
-        margin-left: -880rem;
+        margin-left: -1000rem;
         transform: translateY(-150px); /* حرکت کمی از بالا */
     } 2% {
         opacity: 0;
-        margin-left: -800rem;
+        margin-left: -980rem;
         transform: translateY(-150px); /* حرکت کمی از بالا */
     }
     3% {
         opacity: 0;
-        margin-left: -790rem;
+        margin-left: -890rem;
         transform: translateY(-150px); /* حرکت کمی از بالا */
     }
     4% {
@@ -805,7 +817,7 @@ img {
 @keyframes slideFromBottom {
     0% {
         opacity: 0;
-        margin-right: -880rem ;
+        margin-right: -1080rem ;
         transform: translateY(-150px); /* حرکت کمی از پایین */
     }
     100% {
@@ -872,6 +884,7 @@ img {
         transform: translateY(-120px);
         /* شروع از بالاتر (120 پیکسل بالای صفحه) */
         filter: blur(10px);
+        margin-top: -50rem;
         /* شروع با تاری */
     }
 
@@ -879,18 +892,20 @@ img {
         opacity: 1;
         /* شفافیت کامل در 60% انیمیشن */
         transform: translateY(0);
+        border-radius: 0.9rem;
         /* رسیدن به موقعیت اصلی */
         filter: blur(0);
-        /* حذف کامل تاری */
     }
 
     80% {
         transform: translateY(-15px);
+        margin-top: -30rem;
         /* حرکت جزئی به بالا برای ایجاد حالت پرش */
     }
 
     100% {
         transform: translateY(0);
+        margin-top: 0;
         /* بازگشت به موقعیت نهایی */
     }
 }
